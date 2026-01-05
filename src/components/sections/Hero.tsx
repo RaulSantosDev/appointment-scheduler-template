@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
     <section className="relative min-h-[calc(90vh-90px)] flex items-center overflow-hidden bg-neutral-950">
@@ -37,17 +39,24 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <button
-              className="
+              
+              
+              
+            >
+              < Link 
+                to="/schedule"
+                className="
                 bg-primary text-black
                 px-8 py-4
                 rounded-sm
                 font-bold tracking-wide
-                hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]
+                hover:bg-primary-soft hover:shadow-[0_0_20px_rgba(212,150,48,0.5)]
                 transition-all duration-300
                 uppercase text-sm
               "
-            >
-              Agendar Cita
+              >
+                Agendar Cita
+              </ Link >
             </button>
 
             <button

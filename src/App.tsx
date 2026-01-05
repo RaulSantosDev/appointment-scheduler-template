@@ -1,13 +1,15 @@
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import Home from "./pages/Home";
+
+
+import { RouterProvider } from "react-router-dom"
+import { router } from "./app/router"
 
 export default function App() {
-  return (
-    <div className="bg-bg text-text min-h-screen">
-      <Header />
-      <Home />
-      <Footer />
-    </div>
-  );
+  return < RouterProvider router={ router} />
+  // return (
+  //   <div className="bg-bg text-text min-h-screen">
+  //     <Header />
+  //     <Home />
+  //     <Footer />
+  //   </div>
+  // );
 }
