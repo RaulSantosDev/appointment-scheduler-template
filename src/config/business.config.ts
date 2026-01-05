@@ -7,39 +7,21 @@ export const businessConfig = {
     {
       id: "haircut",
       name: "Corte de cabello",
-      duration: 30,
+      duration: 60,
       price: 150,
     },
     {
       id: "beard",
       name: "Arreglo de barba",
-      duration: 20,
+      duration: 60,
       price: 100,
     },
     {
       id: "combo",
       name: "Corte + Barba",
-      duration: 45,
+      duration: 60,
       price: 220,
-    },
-    {
-      id: "combo",
-      name: "Corte + Barba",
-      duration: 45,
-      price: 220,
-    },
-    {
-      id: "combo",
-      name: "Corte + Barba",
-      duration: 45,
-      price: 220,
-    },
-    {
-      id: "combo",
-      name: "Corte + Barba",
-      duration: 45,
-      price: 220,
-    },
+    }
   ],
 }
 

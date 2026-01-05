@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <header className="w-full border-b border-primary/30 ">
@@ -5,7 +7,11 @@ export default function Header() {
         
         {/* Logo / Marca */}
         <span className="text-4xl tracking-widest font-display text-text">
-          <span className="text-primary font-logotipo md:text-5xl mb-6 text-metallic">LA CHOZA</span> BARBERSHOP
+          <span className="text-primary font-logotipo md:text-5xl mb-6 text-metallic">
+            < Link to="/">
+              LA CHOZA
+            </Link>
+          </span> BARBERSHOP
         </span>
 
         {/* Navegación */}

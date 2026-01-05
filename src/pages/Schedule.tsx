@@ -1,17 +1,21 @@
 import { useState } from "react"
 import Header from "../components/layout/Header"
-import Footer from "../components/layout/Footer"
 import StepOne from "../components/scheduler/StepOne"
 import { businessConfig } from "../config/business.config"
 import type { Service } from "../types/Service"
 
+import StepTwo from "../components/scheduler/StepTwo"
+
 export default function Schedule() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
+
+  const [selectedDate, setSelectedDate] = useState<string | null>(null)
+  const [selectedTime, setSelectedTime] = useState<string | null>(null)
 
   return (
     <>
 
-      <div className="flex flex-col min-h-screen">
+    
         <Header />
 
         <main>
@@ -23,19 +27,43 @@ export default function Schedule() {
           )}
 
           {selectedService && (
-            <div className="text-center py-24">
-              <h2 className="text-2xl font-bold">
+            <div className="text-center py-8">
+              <h2 className="text-2xl font-bold text-primary">
                 Servicio seleccionado:
               </h2>
-              <p className="text-primary text-xl mt-4">
+              <p className="text-text text-xl mt-4">
                 {selectedService.name}
+              </p>
+              <p className="text-text text-xl mt-4">
+                {selectedService.price}
               </p>
             </div>
           )}
         </main>
 
         {/* <Footer /> */}
-      </div>
+
+        {selectedService && !selectedDate && (
+          <StepTwo
+              serviceId={selectedService.id}
+              onSelect={(date, time) => {
+                setSelectedDate(date)
+                setSelectedTime(time)
+              }}
+          />
+        )}
+
+        {selectedDate && selectedTime && (
+          <div className="text-center py-8">
+            <h2 className="text-2xl font-bold">
+              Horario seleccionado
+            </h2>
+            <p className="text-primary text-xl mt-4">
+              {selectedDate} — {selectedTime}
+            </p>
+          </div>
+        )}
+      
     </>
   )
 }
