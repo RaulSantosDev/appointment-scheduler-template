@@ -1,12 +1,13 @@
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Home from "./pages/Home";
 
-
-function App() {
-
+export default function App() {
   return (
-    <>
-      <p className="text-8xl text-blue-600">Hola Mundo de la programación esta es la prueba #1</p>
-    </>
-  )
+    <div className="bg-bg text-text min-h-screen">
+      <Header />
+      <Home />
+      <Footer />
+    </div>
+  );
 }
-
-export default App

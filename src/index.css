@@ -1,1 +1,13 @@
-@import "tailwindcss";
+@import "./styles/theme.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+/* Reset mínimo opcional */
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+
+
