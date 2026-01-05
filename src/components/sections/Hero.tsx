@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(90vh-90px)] flex items-center overflow-hidden bg-neutral-950">
+    <section className="relative min-h-[calc(100vh-90px)] flex items-center overflow-hidden bg-neutral-950">
       
       {/* 1. FONDO AMBIENTAL (URBANO) */}
       <div className="absolute inset-0 z-0">
@@ -13,7 +13,7 @@ export default function Hero() {
           className="w-full h-full object-cover opacity-60 grayscale"
         />
         {/* Degradado para oscurecer y asegurar legibilidad */}
-        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/90 to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-t md:bg-linear-to-r from-black via-black/90 to-black/40" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center py-12 md:py-0">
@@ -28,7 +28,7 @@ export default function Hero() {
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white font-serif">
             Tu estilo, <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-300 to-primary">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-amber-300 to-primary">
               tu mejor versión.
             </span>
           </h1>
@@ -80,7 +80,7 @@ export default function Hero() {
         {/* 3. IMAGEN CON EFECTO NEÓN (URBANO) */}
         <div className="relative order-1 md:order-2 flex justify-center">
           {/* Círculo de luz (Glow Effect) detrás de la imagen */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-primary/20 blur-[100px] rounded-full" />
           
           {/* Contenedor de la imagen */}
           <div //className="relative w-full max-w-md aspect-square md:aspect-4/5 rounded-lg border border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"

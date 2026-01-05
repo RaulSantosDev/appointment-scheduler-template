@@ -1,16 +1,41 @@
+import { useState } from "react"
 import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
+import StepOne from "../components/scheduler/StepOne"
+import { businessConfig } from "../config/business.config"
+import type { Service } from "../types/Service"
 
 export default function Schedule() {
+  const [selectedService, setSelectedService] = useState<Service | null>(null)
+
   return (
     <>
-      <Header />
-      <main className="min-h-screen flex items-center justify-center">
-        <h1 className="text-3xl font-bold text-primary">
-          Agenda tu cita
-        </h1>
-      </main>
-      <Footer />
+
+      <div className="flex flex-col min-h-screen">
+        <Header />
+
+        <main>
+          {!selectedService && (
+            <StepOne
+              services={businessConfig.services}
+              onSelect={setSelectedService}
+            />
+          )}
+
+          {selectedService && (
+            <div className="text-center py-24">
+              <h2 className="text-2xl font-bold">
+                Servicio seleccionado:
+              </h2>
+              <p className="text-primary text-xl mt-4">
+                {selectedService.name}
+              </p>
+            </div>
+          )}
+        </main>
+
+        {/* <Footer /> */}
+      </div>
     </>
   )
 }

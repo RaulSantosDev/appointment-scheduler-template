@@ -1,13 +1,45 @@
-// config/business.config.ts
+import type { Service } from "../types/Service";
+
+// Solo se cambia este config y el producto se adapta a otro negocio
 export const businessConfig = {
-  name: "BarberShop La Choza",
-  description: "Agenda tu cita con los mejores barberos",
-  theme: {
-    primary: "#d4a017",
-    secondary: "#111111",
-  },
+  name: "Barbería Premium",
   services: [
-    { id: "corte", name: "Corte de cabello", duration: 30, price: 150 },
-    { id: "barba", name: "Arreglo de barba", duration: 20, price: 100 },
+    {
+      id: "haircut",
+      name: "Corte de cabello",
+      duration: 30,
+      price: 150,
+    },
+    {
+      id: "beard",
+      name: "Arreglo de barba",
+      duration: 20,
+      price: 100,
+    },
+    {
+      id: "combo",
+      name: "Corte + Barba",
+      duration: 45,
+      price: 220,
+    },
+    {
+      id: "combo",
+      name: "Corte + Barba",
+      duration: 45,
+      price: 220,
+    },
+    {
+      id: "combo",
+      name: "Corte + Barba",
+      duration: 45,
+      price: 220,
+    },
+    {
+      id: "combo",
+      name: "Corte + Barba",
+      duration: 45,
+      price: 220,
+    },
   ],
-};
+}
+
