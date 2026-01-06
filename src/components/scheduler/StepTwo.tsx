@@ -1,53 +1,154 @@
 import { useEffect, useState } from "react"
+import { Clock, ChevronLeft, Calendar as CalendarIcon } from "lucide-react"
+import type { AppointmentDraft } from "../../types/AppointmentDraft"
 import { getAvailability } from "../../services/n8n.api"
 
 interface StepTwoProps {
-  serviceId: string
-  onSelect: (date: string, time: string) => void
+  draft: AppointmentDraft
+  onChange: (draft: AppointmentDraft) => void
+  onNext: () => void
+  onBack: () => void
 }
 
-export default function StepTwo({ serviceId, onSelect }: StepTwoProps) {
-  const [date, setDate] = useState("")
-  const [slots, setSlots] = useState<string[]>([])
+export default function StepTwo({
+  draft,
+  onChange,
+  onNext,
+  onBack,
+}: StepTwoProps) {
   const [loading, setLoading] = useState(false)
+  const [slots, setSlots] = useState<string[]>([])
+  const [error, setError] = useState<string | null>(null)
+
+  function selectDate(date: string) {
+    onChange({ ...draft, date, time: null })
+  }
+
+  function selectTime(time: string) {
+    onChange({ ...draft, time })
+  }
 
   useEffect(() => {
-    if (!date) return
+    if (!draft.date || !draft.service) return
 
     setLoading(true)
-    getAvailability(serviceId, date)
-      .then(setSlots)
-      .finally(() => setLoading(false))
-  }, [date, serviceId])
+    setError(null)
+    setSlots([])
+
+    getAvailability(draft.service.id, draft.date)
+      .then((availableSlots) => {
+        setSlots(availableSlots)
+      })
+      .catch(() => {
+        setError("No se pudo obtener disponibilidad")
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [draft.date, draft.service])
+
+  const isValid = Boolean(draft.date && draft.time)
 
   return (
-    <section className="max-w-xl mx-auto py-1">
-      <h2 className="text-3xl font-bold mb-6 text-center text-metallic">
-        Selecciona fecha y horario
-      </h2>
+    <section className="max-w-md mx-auto text-white">
+      {/* Encabezado Principal */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-serif mb-1 tracking-wide">Premium Barbershop</h1>
+        <p className="text-zinc-400 font-light">Agenda tu cita</p>
+      </div>
 
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        className="w-full p-3 rounded-lg bg-surface mb-6"
-      />
+      {/* Indicador de Pasos */}
+      <div className="flex justify-center gap-2 mb-10">
+        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
+        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
+        <div className="h-1 w-10 rounded-full bg-zinc-800" />
+        <div className="h-1 w-10 rounded-full bg-zinc-800" />
+      </div>
 
-      {loading && <p className="text-center">Cargando horarios...</p>}
-
-      {!loading && slots.length > 0 && (
-        <div className="grid grid-cols-2 gap-4">
-          {slots.map((slot) => (
-            <button
-              key={slot}
-              onClick={() => onSelect(date, slot)}
-              className="p-3 rounded-lg border border-primary hover:bg-primary hover:text-black transition"
-            >
-              {slot}
-            </button>
-          ))}
+      {/* Selector de Fecha Estilizado */}
+      <div className="mb-10">
+        <label className="flex items-center gap-2 text-yellow-500/90 text-sm font-medium mb-3 uppercase tracking-widest">
+          <CalendarIcon size={16} /> Fecha deseada
+        </label>
+        <div className="relative group">
+          <input
+            type="date"
+            value={draft.date}
+            onChange={(e) => selectDate(e.target.value)}
+            className="
+              w-full rounded-2xl border border-zinc-800 bg-zinc-900/50 px-5 py-4 text-white 
+              appearance-none transition-all duration-300
+              focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20
+              group-hover:border-zinc-600
+            "
+          />
+          {/* Este div ayuda a que el icono nativo del calendario sea más discreto o se oculte según el navegador */}
+          <style>{`
+            input[type="date"]::-webkit-calendar-picker-indicator {
+              filter: invert(1) brightness(0.5);
+              cursor: pointer;
+            }
+          `}</style>
         </div>
-      )}
+      </div>
+
+      {/* Título de sección de horarios */}
+      <div className="mb-6">
+        <p className="text-[10px] tracking-[0.2em] text-zinc-500 font-bold uppercase text-center mb-4">
+          Horarios disponibles
+        </p>
+        
+        {loading && <p className="text-center py-10 text-zinc-500 animate-pulse">Consultando disponibilidad…</p>}
+        {error && <p className="text-center py-10 text-red-400 bg-red-400/10 rounded-xl border border-red-400/20">{error}</p>}
+
+        {/* Grid de Horarios */}
+        {!loading && slots.length > 0 && (
+          <div className="grid grid-cols-4 gap-4">
+            {slots.map((time) => {
+              const isSelected = draft.time === time
+              return (
+                <button
+                  key={time}
+                  onClick={() => selectTime(time)}
+                  className={`
+                    flex flex-col items-center justify-center py-4 rounded-2xl border transition-all duration-300
+                    ${isSelected
+                      ? "bg-zinc-900 border-yellow-500 ring-2 ring-yellow-500/40 shadow-[0_0_20px_rgba(234,179,8,0.4)] text-yellow-500"
+                      : "bg-zinc-900/50 border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200"
+                    }
+                  `}
+                >
+                  <Clock size={16} className={`mb-1 ${isSelected ? "text-yellow-500" : "text-zinc-500"}`} />
+                  <span className="text-[15px] font-bold">{time}</span>
+                </button>
+              )
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Navegación Inferior */}
+      <div className="grid grid-cols-2 gap-4 mt-12">
+        <button
+          onClick={onBack}
+          className="py-4 bg-zinc-900/80 border border-zinc-800 text-zinc-300 rounded-2xl font-bold hover:bg-zinc-800 transition-all active:scale-95"
+        >
+          Volver
+        </button>
+
+        <button
+          disabled={!isValid || loading}
+          onClick={onNext}
+          className="
+            py-4 bg-yellow-500 text-black rounded-2xl font-bold
+            transition-all duration-300 active:scale-95
+            disabled:opacity-30 disabled:grayscale
+            shadow-[0_8px_30px_rgba(234,179,8,0.3)]
+          "
+        >
+          Continuar
+        </button>
+      </div>
     </section>
   )
 }

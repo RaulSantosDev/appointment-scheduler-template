@@ -11,12 +11,7 @@ export default function Home() {
         <Hero />
 
         
-          {/* <div><Link
-            to="/agendar"
-            className="px-8 py-4 rounded-lg bg-primary text-black font-semibold hover:opacity-90 transition"
-          >
-            Agendar cita 
-          </Link> <div>*/}
+          
         
       </main>
       {/* <Footer /> */}
