@@ -5,28 +5,28 @@ import StepOne from "../components/scheduler/OneStep"
 import StepTwo from "../components/scheduler/StepTwo"
 import StepThree from "../components/scheduler/StepThree"
 
-
-
 import { businessConfig }  from "../config/business.config"
 import Header from "../components/layout/Header"
+import StepFour from "../components/scheduler/StepFour"
 
 const services = businessConfig.services
 
-// type Step = 1 | 2 | 3 | 4
+const initialState = {
+      name: "",
+      phone: "",
+      email: "",
+      service: null,
+      date: "",
+      time: "",
+      price: 0
+    }
 
 export default function Schedule() {
   
 
     const [step, setStep] = useState(1)
 
-    const [draft, setDraft] = useState<AppointmentDraft>({
-      name: "",
-      phone: "",
-      email: "",
-      service: null,
-      date: "",
-      time: ""
-    })
+    const [draft, setDraft] = useState<AppointmentDraft>(initialState)
 
 
   return (
@@ -71,29 +71,21 @@ export default function Schedule() {
               <StepThree
                 draft={draft}
                 onBack={() => setStep(2)}
-                onSuccess={() => setStep(4)}
+                onConfirmed={() => setStep(4)}
               />
             )}
 
 
             {step === 4 && (
-              <div>
-                <h2 className="text-xl font-semibold mb-4">
-                  Paso 4 – Cita confirmada
-                </h2>
+              <StepFour
+                draft={draft}
+                onReset={() => {
+                  setDraft(initialState)
+                  setStep(1)
+            }}
+  />
+)}
 
-                <p className="text-muted">
-                  Tu cita fue agendada correctamente.
-                </p>
-
-                <button
-                  className="mt-6 px-4 py-2 border rounded-lg"
-                  onClick={() => setStep(1)}
-                >
-                  Agendar otra cita
-                </button>
-              </div>
-            )}
           </div>
 
         </section>

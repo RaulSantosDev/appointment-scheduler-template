@@ -4,6 +4,9 @@ interface AppointmentPayload {
   time: string
   name: string
   phone: string
+  email: string
+  price: number
+  nameService: string
 }
 
 // Obtiene los horarios disponibles
@@ -11,7 +14,7 @@ export async function getAvailability(
   serviceId: string,
   date: string
 ): Promise<string[]> {
-  const response = await fetch("https://n8n.srv1099745.hstgr.cloud/webhook-test/f6ddfa6f-8256-41ba-b46e-2fe314e3ce6a", {
+  const response = await fetch("https://n8n.srv1099745.hstgr.cloud/webhook/f6ddfa6f-8256-41ba-b46e-2fe314e3ce6a", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +32,7 @@ export async function getAvailability(
 
 // Datos para la cita.
 export async function createAppointment(payload: AppointmentPayload) {
-  const response = await fetch("https://n8n.srv1099745.hstgr.cloud/webhook/d68efc9f-9905-46d2-9c6f-c8fdcd3411ea", {
+  const response = await fetch("https://n8n.srv1099745.hstgr.cloud/webhook-test/d68efc9f-9905-46d2-9c6f-c8fdcd3411ea", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

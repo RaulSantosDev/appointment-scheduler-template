@@ -7,5 +7,6 @@ export interface AppointmentDraft {
   service: Service | null
   date: string
   time: string | null
+  price: number
 }
 

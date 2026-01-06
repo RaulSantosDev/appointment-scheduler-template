@@ -40,7 +40,7 @@ export default function StepOne({
   const labelClasses = "flex items-center gap-2 text-yellow-500/90 text-sm font-medium mb-2"
 
   return (
-    <section className="max-w-md mx-auto bg-transparent text-zinc-100">
+    <section className="max-w-md mx-auto bg-transparent text-zinc-100 ">
       {/* Header Estilo Premium */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-serif mb-1 tracking-wide">Premium Barbershop</h1>
@@ -48,11 +48,13 @@ export default function StepOne({
       </div>
 
       {/* Indicador de Pasos */}
-      <div className="flex justify-center gap-2 mb-10">
-        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
-        <div className="h-1 w-10 rounded-full bg-zinc-800" />
-        <div className="h-1 w-10 rounded-full bg-zinc-800" />
-        <div className="h-1 w-10 rounded-full bg-zinc-800" />
+      <div className="flex gap-1.5 mb-10 justify-center">
+        {[1, 2, 3, 4].map((step) => (
+          <div 
+            key={step} 
+            className={`h-1 w-8 rounded-full ${step === 1 ? 'bg-primary' : 'bg-[#c5a048]/20'}`} 
+          />
+        ))}
       </div>
 
       <div className="space-y-5">

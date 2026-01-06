@@ -58,11 +58,13 @@ export default function StepTwo({
       </div>
 
       {/* Indicador de Pasos */}
-      <div className="flex justify-center gap-2 mb-10">
-        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
-        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
-        <div className="h-1 w-10 rounded-full bg-zinc-800" />
-        <div className="h-1 w-10 rounded-full bg-zinc-800" />
+      <div className="flex gap-1.5 mb-10 justify-center">
+        {[1, 2, 3, 4].map((step) => (
+          <div 
+            key={step} 
+            className={`h-1 w-8 rounded-full ${step === 2 ? 'bg-primary' : 'bg-primary/20'}`} 
+          />
+        ))}
       </div>
 
       {/* Selector de Fecha Estilizado */}

@@ -6,43 +6,57 @@ import { createAppointment } from "../../services/n8n.api"
 interface StepThreeProps {
   draft: AppointmentDraft
   onBack: () => void
-  onSuccess: () => void
+  onConfirmed: () => void
 }
 
 export default function StepThree({
   draft,
   onBack,
-  onSuccess,
+  onConfirmed,
 }: StepThreeProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   async function confirmAppointment() {
-    if (!draft.service || !draft.time) return
+    if (!draft.service || !draft.time) {
+      setError("Información incompleta para confirmar la cita")
+      return
+    }  
 
     setLoading(true)
     setError(null)
 
     try {
-      await createAppointment({
+      const response = await createAppointment({
         serviceId: draft.service.id,
         date: draft.date,
         time: draft.time,
         name: draft.name,
         phone: draft.phone,
+        email: draft.email,
+        price: draft.service.price,
+        nameService: draft.service.name
       })
 
-      onSuccess()
+     /**
+       * createAppointment ya lanza error si !response.ok,
+       * así que llegar aquí implica OK 200
+       */
+      if (response) {
+        onConfirmed() // ← SOLO aquí avanzamos al paso 4
+      }
     } catch (err) {
-      setError("No se pudo confirmar la cita. Intenta nuevamente.")
+      setError(
+        "No se pudo confirmar la cita. El horario pudo haber sido tomado."
+      )
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <section className="max-w-md mx-auto text-white">
-        
+    
+    <section className="max-w-md mx-auto text-white">        
 
       {/* Encabezado Estilo Premium */}
       <div className="text-center mb-8">
@@ -51,14 +65,16 @@ export default function StepThree({
       </div>
 
       {/* Indicador de Pasos */}
-      <div className="flex justify-center gap-2 mb-10">
-        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
-        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
-        <div className="h-1 w-10 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
-        <div className="h-1 w-10 rounded-full bg-zinc-800" />
+      <div className="flex gap-1.5 mb-10 justify-center">
+        {[1, 2, 3, 4].map((step) => (
+          <div 
+            key={step} 
+            className={`h-1 w-8 rounded-full ${step === 3 ? 'bg-primary' : 'bg-[#c5a048]/20'}`} 
+          />
+        ))}
       </div>
       {/* Tarjeta de Resumen (Card) */}
-      <div className="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-6 space-y-0 divide-y divide-zinc-800/50 shadow-2xl">
+      <div className="bg-zinc-900/40 border border-zinc-800 rounded-4xl p-6 space-y-0 divide-y divide-zinc-800/50 shadow-2xl">
         <SummaryRow 
           icon={<User size={20} />} 
           label="Cliente" 
@@ -93,19 +109,20 @@ export default function StepThree({
 
       {/* Botones de Acción */}
       <div className="flex flex-col gap-3 pt-10">
-        <button
-          onClick={confirmAppointment}
-          disabled={loading}
-          className="
-            w-full py-4 bg-yellow-500 text-black rounded-2xl font-bold text-lg
-            transition-all duration-300 shadow-[0_4px_25px_rgba(234,179,8,0.3)]
-            hover:bg-yellow-400 active:scale-[0.98]
-            disabled:opacity-40 disabled:pointer-events-none
-          "
-        >
-          {loading ? "Confirmando..." : "Confirmar cita"}
-        </button>
-
+        
+          <button
+            onClick={confirmAppointment}
+            disabled={loading}
+            className="
+              w-full py-4 bg-yellow-500 text-black rounded-2xl font-bold text-lg
+              transition-all duration-300 shadow-[0_4px_25px_rgba(234,179,8,0.3)]
+              hover:bg-yellow-400 active:scale-[0.98]
+              disabled:opacity-40 disabled:pointer-events-none
+            "
+          >
+            {loading ? "Confirmando..." : "Confirmar cita"}
+          </button>
+        
         <button
           onClick={onBack}
           disabled={loading}
@@ -158,11 +175,15 @@ function SummaryRow({
             </span>
           )}
         </div>
-        {subValue && (
+
+          {subValue && (
           <p className="text-sm text-zinc-500 font-medium leading-tight">
             {subValue}
           </p>
         )}
+
+        
+      
       </div>
     </div>
   )
