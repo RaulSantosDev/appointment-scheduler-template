@@ -3,8 +3,10 @@ import Header from "../components/layout/Header"
 import StepOne from "../components/scheduler/StepOne"
 import { businessConfig } from "../config/business.config"
 import type { Service } from "../types/Service"
-
+import StepThree from "../components/scheduler/StepThree"
 import StepTwo from "../components/scheduler/StepTwo"
+
+
 
 export default function Schedule() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
@@ -19,6 +21,8 @@ export default function Schedule() {
         <Header />
 
         <main>
+
+          {/* StepOne */}
           {!selectedService && (
             <StepOne
               services={businessConfig.services}
@@ -43,6 +47,7 @@ export default function Schedule() {
 
         {/* <Footer /> */}
 
+        {/* StepTwo */}
         {selectedService && !selectedDate && (
           <StepTwo
               serviceId={selectedService.id}
@@ -63,6 +68,17 @@ export default function Schedule() {
             </p>
           </div>
         )}
+
+        
+        {/* StepThree */}
+        {selectedService && selectedDate && selectedTime && (
+          <StepThree
+            service={selectedService}
+            date={selectedDate}
+            time={selectedTime}
+          />
+        )}
+
       
     </>
   )
