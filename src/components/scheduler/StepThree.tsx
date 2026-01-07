@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { User, Scissors, Calendar, Clock } from "lucide-react" // Iconos para el diseño premium
+import { User, Scissors, Calendar, Clock,Phone} from "lucide-react" // Iconos para el diseño premium
 import type { AppointmentDraft } from "../../types/AppointmentDraft"
 import { createAppointment } from "../../services/n8n.api"
+import { convertDateFormat, getDayWeek } from '../../utilities'
+import { div } from "framer-motion/client"
 
 interface StepThreeProps {
   draft: AppointmentDraft
@@ -69,7 +71,7 @@ export default function StepThree({
         {[1, 2, 3, 4].map((step) => (
           <div 
             key={step} 
-            className={`h-1 w-8 rounded-full ${step === 3 ? 'bg-primary' : 'bg-[#c5a048]/20'}`} 
+            className={`h-1 w-8 rounded-full ${step === 3 ? 'bg-primary' : 'bg-primary/20'}`} 
           />
         ))}
       </div>
@@ -79,19 +81,24 @@ export default function StepThree({
           icon={<User size={20} />} 
           label="Cliente" 
           value={draft.name} 
-          subValue={draft.email} 
+          subValue={
+            <div className="flex items-center gap-2 ">
+              <Phone size={15} />              
+              <span >{draft.phone}</span>
+            </div>
+          }
+          
         />
         <SummaryRow 
           icon={<Scissors size={20} />} 
           label="Servicio" 
           value={draft.service?.name ?? ""} 
-          price={`$${draft.service?.price || '15'}`} 
-          subValue={`${draft.service?.duration || '20'} minutos`}
+          price={`$${draft.service?.price || '100'}`} 
         />
-        <SummaryRow 
+        <SummaryRow         
           icon={<Calendar size={20} />} 
           label="Fecha" 
-          value={draft.date} 
+          value={`${getDayWeek(draft.date)} ${convertDateFormat(draft.date)}`} 
         />
         <SummaryRow 
           icon={<Clock size={20} />} 
@@ -108,31 +115,32 @@ export default function StepThree({
       )}
 
       {/* Botones de Acción */}
-      <div className="flex flex-col gap-3 pt-10">
+      <div className="flex flex-col-2 gap-3 pt-10">
         
-          <button
-            onClick={confirmAppointment}
-            disabled={loading}
-            className="
-              w-full py-4 bg-yellow-500 text-black rounded-2xl font-bold text-lg
-              transition-all duration-300 shadow-[0_4px_25px_rgba(234,179,8,0.3)]
-              hover:bg-yellow-400 active:scale-[0.98]
-              disabled:opacity-40 disabled:pointer-events-none
-            "
-          >
-            {loading ? "Confirmando..." : "Confirmar cita"}
-          </button>
         
         <button
           onClick={onBack}
           disabled={loading}
           className="
-            w-full py-3 bg-zinc-900/50 text-zinc-400 rounded-2xl font-semibold 
-            border border-zinc-800 transition-all hover:text-white hover:bg-zinc-800
-            disabled:opacity-40
+          w-full py-3 bg-zinc-900/50 text-zinc-400 rounded-2xl font-semibold 
+          border border-zinc-800 transition-all hover:text-white hover:bg-zinc-800
+          disabled:opacity-40
           "
         >
           Cambiar
+        </button>
+
+        <button
+          onClick={confirmAppointment}
+          disabled={loading}
+          className="
+            w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
+              transition-all duration-300 transform active:scale-[0.98]
+              hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
+          "
+        >
+          {loading ? "Confirmando..." : "Confirmar cita"}
         </button>
       </div>
     </section>
@@ -147,18 +155,19 @@ function SummaryRow({
   label,
   value,
   subValue,
-  price
+  price,
+  
 }: {
   icon: React.ReactNode
   label: string
   value: string
-  subValue?: string
+  subValue?: React.ReactNode
   price?: string
 }) {
   return (
     <div className="flex items-start gap-4 py-5 first:pt-0 last:pb-0">
       {/* Contenedor del Icono */}
-      <div className="bg-zinc-800/80 p-3 rounded-xl text-yellow-500 shadow-inner">
+      <div className="bg-zinc-800/80 p-3 rounded-xl text-primary shadow-inner">
         {icon}
       </div>
       
@@ -170,17 +179,17 @@ function SummaryRow({
         <div className="flex justify-between items-baseline">
           <h3 className="text-lg font-bold text-zinc-100 truncate">{value}</h3>
           {price && (
-            <span className="text-yellow-500 font-serif text-2xl leading-none ml-2">
+            <span className="text-primary font-serif text-2xl leading-none ml-2">
               {price}
             </span>
           )}
         </div>
 
           {subValue && (
-          <p className="text-sm text-zinc-500 font-medium leading-tight">
-            {subValue}
+          <p className="text-sm  font-medium leading-tight">
+           <span>{subValue}</span>
           </p>
-        )}
+          )}
 
         
       

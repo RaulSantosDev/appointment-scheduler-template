@@ -10,7 +10,7 @@ export default function Hero() {
         <img 
           src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop" 
           alt="Fondo Barbería" 
-          className="w-full h-full object-cover opacity-60 grayscale"
+          className="w-full h-full object-cover opacity-100 grayscale"
         />
         {/* Degradado para oscurecer y asegurar legibilidad */}
         <div className="absolute inset-0 bg-linear-to-t md:bg-linear-to-r from-black via-black/90 to-black/40" />

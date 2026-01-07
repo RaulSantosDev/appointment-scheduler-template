@@ -32,7 +32,7 @@ export async function getAvailability(
 
 // Datos para la cita.
 export async function createAppointment(payload: AppointmentPayload) {
-  const response = await fetch("https://n8n.srv1099745.hstgr.cloud/webhook-test/d68efc9f-9905-46d2-9c6f-c8fdcd3411ea", {
+  const response = await fetch("https://n8n.srv1099745.hstgr.cloud/webhook/d68efc9f-9905-46d2-9c6f-c8fdcd3411ea", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

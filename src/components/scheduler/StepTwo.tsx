@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Clock, ChevronLeft, Calendar as CalendarIcon } from "lucide-react"
 import type { AppointmentDraft } from "../../types/AppointmentDraft"
 import { getAvailability } from "../../services/n8n.api"
+import { convertDateFormat, getDayWeek } from "../../utilities"
 
 interface StepTwoProps {
   draft: AppointmentDraft
@@ -68,8 +69,8 @@ export default function StepTwo({
       </div>
 
       {/* Selector de Fecha Estilizado */}
-      <div className="mb-10">
-        <label className="flex items-center gap-2 text-yellow-500/90 text-sm font-medium mb-3 uppercase tracking-widest">
+      <div className="mb-5">
+        <label className="flex items-center gap-2 text-primary text-sm font-medium mb-3 uppercase tracking-widest">
           <CalendarIcon size={16} /> Fecha deseada
         </label>
         <div className="relative group">
@@ -78,9 +79,9 @@ export default function StepTwo({
             value={draft.date}
             onChange={(e) => selectDate(e.target.value)}
             className="
-              w-full rounded-2xl border border-zinc-800 bg-zinc-900/50 px-5 py-4 text-white 
-              appearance-none transition-all duration-300
-              focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20
+              w-full rounded-2xl border border-primary/20 bg-zinc-900/50 px-5 py-4 text-white 
+              appearance-none transition-all duration-300 hover:border-primary
+              focus:border-primary focus:outline-none focus:ring-2 focus:ring-yellow-500/20
               group-hover:border-zinc-600
             "
           />
@@ -93,6 +94,14 @@ export default function StepTwo({
           `}</style>
         </div>
       </div>
+
+      { draft.date ? 
+        <p className="flex items-center text-xl gap-2 text-primary font-medium mb-3 uppercase tracking-widest justify-center">
+            
+            <span className=" font-serif italic">{getDayWeek(draft.date)}</span> 
+            <span>{ convertDateFormat(draft.date)}</span> 
+        </p> : ""
+      }
 
       {/* Título de sección de horarios */}
       <div className="mb-6">
@@ -113,9 +122,9 @@ export default function StepTwo({
                   key={time}
                   onClick={() => selectTime(time)}
                   className={`
-                    flex flex-col items-center justify-center py-4 rounded-2xl border transition-all duration-300
+                    flex flex-col items-center justify-center py-4 rounded-2xl border transition-all duration-300 hover:cursor-pointer
                     ${isSelected
-                      ? "bg-zinc-900 border-yellow-500 ring-2 ring-yellow-500/40 shadow-[0_0_20px_rgba(234,179,8,0.4)] text-yellow-500"
+                      ? "bg-zinc-900 border-yellow-500 ring-2 ring-yellow-500/40 shadow-[0_0_20px_rgba(234,179,8,0.4)] text-primary"
                       : "bg-zinc-900/50 border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200"
                     }
                   `}
@@ -142,10 +151,10 @@ export default function StepTwo({
           disabled={!isValid || loading}
           onClick={onNext}
           className="
-            py-4 bg-yellow-500 text-black rounded-2xl font-bold
-            transition-all duration-300 active:scale-95
-            disabled:opacity-30 disabled:grayscale
-            shadow-[0_8px_30px_rgba(234,179,8,0.3)]
+            w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
+              transition-all duration-300 transform active:scale-[0.98]
+              hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
           "
         >
           Continuar

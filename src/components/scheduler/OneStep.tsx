@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { User, Phone, Mail, Scissors } from 'lucide-react' // Importar iconos
 import type { Service } from '../../types/Service'
 import type { AppointmentDraft } from '../../types/AppointmentDraft'
@@ -16,6 +16,10 @@ export default function StepOne({
   onChange,
   onNext,
 }: StepOneProps) {
+
+  const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState<Service | null>(null)
+
 
   function updateDraft<K extends keyof AppointmentDraft>(
     key: K,
@@ -37,7 +41,7 @@ export default function StepOne({
     focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500
   `
 
-  const labelClasses = "flex items-center gap-2 text-yellow-500/90 text-sm font-medium mb-2"
+  const labelClasses = "flex items-center gap-2 text-primary text-sm font-medium mb-2"
 
   return (
     <section className="max-w-md mx-auto bg-transparent text-zinc-100 ">
@@ -52,7 +56,7 @@ export default function StepOne({
         {[1, 2, 3, 4].map((step) => (
           <div 
             key={step} 
-            className={`h-1 w-8 rounded-full ${step === 1 ? 'bg-primary' : 'bg-[#c5a048]/20'}`} 
+            className={`h-1 w-8 rounded-full ${step === 1 ? 'bg-primary' : 'bg-primary/20'}`} 
           />
         ))}
       </div>
@@ -108,7 +112,7 @@ export default function StepOne({
             <Scissors size={18} /> Servicio
           </label>
           <div className="relative">
-            <select
+            {/* <select
               id='service'
               value={draft.service?.id ?? ''}
               onChange={(e) =>
@@ -119,17 +123,64 @@ export default function StepOne({
               }
               className={`${inputClasses} appearance-none cursor-pointer`}
             >
-              <option value="" className="bg-zinc-900 text-primary">Selecciona un servicio</option>
+              <option value="" className="bg-zinc-900 text-white">Selecciona un servicio</option>
               {services.map(service => (
-                <option key={service.id} value={service.id} className="bg-zinc-900 text-primary">
-                  {service.name} ${service.price}
+                <option key={service.id} value={service.id} className="bg-zinc-900 flex justify-between items-center w-full gap-4 placeholder:text-zinc-400">
+                  <span>{service.name}-</span>
+                  <span className='text-primary'>${service.price}</span>
                 </option>
               ))}
-            </select>
-            {/* Flecha personalizada para el select */}
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-500">
-              <svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </select> */}
+
+
+            <div className="relative">
+              <button
+                type="button"
+                id="service"
+                onClick={() => setOpen(!open)}
+                className={`${inputClasses} w-full text-left flex justify-between items-center cursor-pointer rounded`}
+              >
+                <span className={draft.service ? 'text-white' : 'text-zinc-400'}>
+                  {draft.service ? draft.service.name : 'Selecciona un servicio'}
+                </span>
+                <span className="text-zinc-400">▾</span>
+              </button>
+
+
+              {open && (
+                <div className="absolute z-20 w-full bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden">
+                  {services.map(service => (
+                    <button
+                      key={service.id}
+                      type="button"
+                      onClick={() => {
+                        updateDraft('service', service)
+                        setOpen(false)
+                      }}
+                      className={`w-full px-4 py-3 flex justify-between items-center text-white
+                        hover:bg-primary hover:text-black transition rounded-lg`}
+                    >
+                      <span>{service.name}</span>
+                      <span className="font-semibold">
+                        ${service.price}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
+
+
+
+
+
+
+            
+
+            {/* Flecha personalizada para el select */}
+            {/* <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-500">
+              <svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div> */}
           </div>
         </div>
 
@@ -142,7 +193,7 @@ export default function StepOne({
               w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
               transition-all duration-300 transform active:scale-[0.98]
               hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
-              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none
+              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
             "
           >
             Consultar disponibilidad
