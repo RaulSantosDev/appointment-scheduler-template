@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { User, Phone, Mail, Scissors } from 'lucide-react' // Importar iconos
 import type { Service } from '../../types/Service'
 import type { AppointmentDraft } from '../../types/AppointmentDraft'
@@ -18,7 +18,6 @@ export default function StepOne({
 }: StepOneProps) {
 
   const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState<Service | null>(null)
 
 
   function updateDraft<K extends keyof AppointmentDraft>(
@@ -40,8 +39,8 @@ export default function StepOne({
     placeholder:text-zinc-500 transition-all duration-200 
     focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500
   `
-
   const labelClasses = "flex items-center gap-2 text-primary text-sm font-medium mb-2"
+
 
   return (
     <section className="max-w-md mx-auto bg-transparent text-zinc-100 ">

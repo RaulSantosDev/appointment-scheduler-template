@@ -3,7 +3,7 @@ import { User, Scissors, Calendar, Clock,Phone} from "lucide-react" // Iconos pa
 import type { AppointmentDraft } from "../../types/AppointmentDraft"
 import { createAppointment } from "../../services/n8n.api"
 import { convertDateFormat, getDayWeek } from '../../utilities'
-import { div } from "framer-motion/client"
+
 
 interface StepThreeProps {
   draft: AppointmentDraft
@@ -49,7 +49,7 @@ export default function StepThree({
       }
     } catch (err) {
       setError(
-        "No se pudo confirmar la cita. El horario pudo haber sido tomado."
+        `No se pudo confirmar la cita. El horario pudo haber sido tomado.`
       )
     } finally {
       setLoading(false)
@@ -109,8 +109,9 @@ export default function StepThree({
 
       {/* Mensaje de Error */}
       {error && (
-        <p className="text-red-400 text-center text-sm mt-4 bg-red-400/10 py-2 rounded-xl border border-red-400/20">
+        <p className="text-red-400 text-center text-sm mt-4 bg-red-400/10 py-2 rounded-xl border border-red-400/20 white-space: whitespace-pre-line ">
           {error}
+          <p className="font-bold">INTENTA CON OTRO HORARIO.</p>
         </p>
       )}
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Clock, ChevronLeft, Calendar as CalendarIcon } from "lucide-react"
+import { Clock, Calendar as CalendarIcon } from "lucide-react"
 import type { AppointmentDraft } from "../../types/AppointmentDraft"
 import { getAvailability } from "../../services/n8n.api"
 import { convertDateFormat, getDayWeek } from "../../utilities"

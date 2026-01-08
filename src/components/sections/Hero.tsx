@@ -1,108 +1,92 @@
 import { Link } from "react-router-dom";
+import { LandingPage } from "./LandingPage";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-90px)] flex items-center overflow-hidden bg-neutral-950">
-      
-      {/* 1. FONDO AMBIENTAL (URBANO) */}
-      <div className="absolute inset-0 z-0">
-        {/* Aquí deberías poner una foto real de tu local o una textura de ladrillo oscuro */}
-        <img 
-          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop" 
-          alt="Fondo Barbería" 
-          className="w-full h-full object-cover opacity-100 grayscale"
+    <>
+    <section className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden bg-neutral-950 ">
+
+      {/* FONDO */}
+      <div className="absolute inset-0  ">
+        <img
+          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop"
+          alt="Fondo Barbería"
+          className="w-full h-full object-cover grayscale "
         />
-        {/* Degradado para oscurecer y asegurar legibilidad */}
-        <div className="absolute inset-0 bg-linear-to-t md:bg-linear-to-r from-black via-black/90 to-black/40" />
+        <div className="absolute inset-0 bg-radial from-[#0000006c] from-1% to-[#010100] opacity-100 " />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center py-12 md:py-0">
 
-        {/* 2. TEXTO (ELEGANCIA) */}
-        <div className="text-center md:text-left order-2 md:order-1">
-          <div className="inline-block border-b border-primary/50 pb-2 mb-6">
-            <p className="uppercase tracking-[0.2em] text-sm font-semibold text-primary/90">
-              Muna, Yucatán.
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+
+        {/* TEXTO */}
+        <div className="text-center md:text-left md:translate-x-[50px]">
+          <div className="flex items-center gap-3 mb-6">
+            <p className="uppercase tracking-widest text-xs font-medium text-primary ">
+              Muna, Yucatán · Atención personalizada
             </p>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white font-serif">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-white">
             Tu estilo, <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-amber-300 to-primary">
-              tu mejor versión.
-            </span>
+            <span className="text-primary">tu mejor versión.</span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-400 max-w-xl mx-auto md:mx-0 font-light leading-relaxed">
-            Experimenta el ritual de la barbería clásica fusionado con el estilo urbano contemporáneo. Sin esperas, solo excelencia.
+          <p className="mt-6 text-base md:text-lg text-gray-400 max-w-xl leading-relaxed">
+            Experimenta el ritual de la barbería clásica fusionado
+            con el estilo urbano contemporáneo.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button
-              
-              
-              
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <Link
+              to="/schedule"
+              className="
+              w-auto p-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
+              transition-all duration-300 transform active:scale-[0.98]
+              hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
+            "
             >
-              < Link 
-                to="/schedule"
-                className="
-                bg-primary text-black
-                px-8 py-4
-                rounded-sm
-                font-bold tracking-wide
-                hover:bg-primary-soft hover:shadow-[0_0_20px_rgba(212,150,48,0.5)]
-                transition-all duration-300
-                uppercase text-sm
-              "
-              >
-                Agendar Cita
-              </ Link >
-            </button>
+              Agendar cita
+            </Link>
 
             <button
               className="
-                border border-white/20
+                border border-white/30
                 text-white
-                px-8 py-4
+                px-10 py-4
+                font-medium uppercase text-sm
                 rounded-sm
-                font-medium tracking-wide
                 hover:border-primary hover:text-primary
-                backdrop-blur-sm
-                transition-all duration-300
-                uppercase text-sm
+                transition
               "
             >
-              Ver Servicios
+              Ver servicios
             </button>
           </div>
+
+          <p className="mt-3 text-xs text-gray-500">
+            Cita en menos de 30 segundos
+          </p>
         </div>
 
-        {/* 3. IMAGEN CON EFECTO NEÓN (URBANO) */}
-        <div className="relative order-1 md:order-2 flex justify-center">
-          {/* Círculo de luz (Glow Effect) detrás de la imagen */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-primary/20 blur-[100px] rounded-full" />
-          
-          {/* Contenedor de la imagen */}
-          <div //className="relative w-full max-w-md aspect-square md:aspect-4/5 rounded-lg border border-white/10 p-2 bg-white/5 backdrop-blur-sm shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
-            //className="relative w-full max-w-auto aspect-square rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_50px_rgba(212,175,55,0.1)] hover:scale-105 transition-all duration-500 "
-            className="transition-transform duration-300 hover:scale-110 hover:rotate-1"
-          >
-             {/* Aquí iría la imagen que generaste o el logo */}
-             <img 
-               //src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070&auto=format&fit=crop" 
-               src="../../../public/460638877_486605284244244_179908150592s36s02823_n.png"
-               alt="Corte Urbano"
-               className="w-full h-full object-cover rounded shadow-inner filter contrast-125 sepia-[.2]" 
-             />
-             
-             {/* Detalle decorativo estilo "La Choza" */}
-             {/* <div className="absolute bottom-6 -right-6 w-auto h-auto bg-black border border-primary flex items-center justify-center rounded-md shadow-lg z-20">
-                <span className="text-primary font-serif text-xl italic p-4">By Marcos Tun</span>
-             </div> */}
+        {/* LOGO */}
+        <div className="relative flex justify-center">
+          <div className="absolute inset-0 flex justify-center items-center">
+            <div className="w-[420px] h-[420px] bg-primary/10 rounded-full blur-[120px]" />
           </div>
+
+          <img
+            src="../../../public/460638877_486605284244244_179908150592s36s02823_n.png"
+            alt="La Choza Barbershop"
+            className="relative w-[420px] max-w-full drop-shadow-[0_20px_60px_rgba(0,0,0,0.8)]"
+          />
         </div>
 
       </div>
     </section>
+        < LandingPage />
+    
+      </>
   );
 }
