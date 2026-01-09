@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-primary/30">
-      <div className="max-w-8xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between gap-6 text-md ">
+    <footer className="border-t border-primary/30 ">
+      <div className="max-w-8xl mx-auto p-2 text-sm/snug flex md:justify-between md:p-4">
 
-        <span className="text-muted">
+        <p className="text-muted">
           © {new Date().getFullYear()} La Choza Barber. Todos los derechos reservados.
-        </span>
+        </p>
 
         <div className="flex gap-6">
           <a

@@ -96,11 +96,13 @@ export default function StepOne({
               <Mail size={18} /> Email
             </label>
             <input
+              type="email"
               id='email'
               placeholder="tu@email.com"
               value={draft.email}
               onChange={(e) => updateDraft('email', e.target.value)}
               className={inputClasses}
+              required
             />
           </div>
         </div>

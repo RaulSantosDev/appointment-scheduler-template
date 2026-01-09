@@ -8,6 +8,7 @@ import StepThree from "../components/scheduler/StepThree"
 import { businessConfig }  from "../config/business.config"
 import Header from "../components/layout/Header"
 import StepFour from "../components/scheduler/StepFour"
+import Footer from "../components/layout/Footer"
 
 const services = businessConfig.services
 
@@ -33,8 +34,9 @@ export default function Schedule() {
 
     <>
       <Header/>
-      <main className="min-h-screen bg-background text-foreground bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100">
-        <section className="max-w-3xl mx-auto py-6 px-4">
+      
+      <main className="min-h-screen bg-background w-full p-1 text-foreground bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100">
+        <section className="max-w-3xl mx-auto py-6 ">
 
           {/* Header */}
           {/* <header className="mb-10 text-center">
@@ -46,7 +48,7 @@ export default function Schedule() {
           </header> */}
 
           {/* Step content */}
-          <div className="rounded-xl border border-primary p-6 bg-surface max-w-3/5 mx-auto">
+          <div className="rounded-xl border border-primary p-6 bg-surface md:max-w-3/5 mx-auto">
             {step === 1 && (
               <StepOne
                 services={services}
@@ -90,6 +92,8 @@ export default function Schedule() {
 
         </section>
       </main>
+
+      < Footer />
 
     </>
   )

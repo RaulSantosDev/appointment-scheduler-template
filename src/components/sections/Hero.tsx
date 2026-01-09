@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LandingPage } from "./LandingPage";
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
@@ -17,17 +18,29 @@ export default function Hero() {
       </div>
 
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 items-center md:grid-cols-2">
+
+        <motion.div initial={{
+                opacity: 0,
+                scale: 0.95
+              }} whileInView={{
+                opacity: 1,
+                scale: 1
+              }} transition={{
+                duration: 0.6
+              }} viewport={{
+                once: true
+              }} className="">
 
         {/* TEXTO */}
-        <div className="text-center md:text-left md:translate-x-[50px] mb-4">
-          <div className="flex items-center gap-3 mt-6">
+        <div className="text-center md:text-left md:translate-x-[50px] mb-4 order-2 md:order-1">
+          <div className="flex items-center justify-center gap-3 mt-6 md:justify-start">
             <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
               Muna, Yucatán, México.
             </p>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-white mt-4">
+          <h1 className="text-6xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-white mt-4">
             Tu estilo, <br />
             <span className="text-primary">tu mejor </span> <p >versión.</p>
           </h1>
@@ -72,23 +85,40 @@ export default function Hero() {
           </p>
         </div>
 
+        </motion.div>
+
         {/* LOGO */}
-        <div className="relative flex justify-center">
+        
+        
+        <div className="relative flex justify-center order-1 md:order-2">
           <div className="absolute inset-0 flex justify-center items-center">
             <div className="w-[420px] h-[420px] bg-primary/10 rounded-full blur-[120px]" />
           </div>
 
+
+          <motion.div initial={{
+                opacity: 0,
+                scale: 0.95
+              }} whileInView={{
+                opacity: 1,
+                scale: 1
+              }} transition={{
+                duration: 0.6
+              }} viewport={{
+                once: true
+              }} className="">
           <img
             src="../../../public/460638877_486605284244244_179908150592s36s02823_n.png"
             alt="La Choza Barbershop"
-            className="relative w-120 h-auto rounded-full object-cover cursor-pointer transition-all duration-500 ease-out hover:scale-[1.05] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
+            className="relative w-70 md:w-120 md:h-auto rounded-full object-cover cursor-pointer transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
           />
+        </motion.div>
+
         </div>
 
         {/* <div className="absolute bottom-6 right-5 w-auto h-auto bg-black border border-primary flex items-center justify-center rounded-md shadow-lg z-20">
                 <span className="text-primary font-serif text-xl italic p-4">By Marcos Tun</span>
         </div> */}
-
       </div>
     </section>
         < LandingPage />

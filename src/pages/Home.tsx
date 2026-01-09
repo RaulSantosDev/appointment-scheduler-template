@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col min-h-screen" >
-      <Header />
-      <main>
-        <Hero />         
-        
-      </main>
-      <Footer />
+        <Header />
+          <main>
+            <Hero />         
+            
+          </main>
+        <Footer />
       </div>
     </>
   )

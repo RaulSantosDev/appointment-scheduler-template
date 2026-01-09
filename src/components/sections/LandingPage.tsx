@@ -71,7 +71,7 @@ export function LandingPage() {
                         </h3>
                         <p className="text-primary text-4xl">
                           {feature.description}
-                          <p className='text-2xl'><a href="wa.link/3skshn">{feature.Cel}</a></p>
+                          <p className='text-2xl'><a href="https://wa.link/3skshn" target=''>{feature.Cel}</a></p>
                         </p>
                       </div>
                 </motion.div>)}
@@ -83,17 +83,17 @@ export function LandingPage() {
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div initial={{
-            opacity: 0,
-            scale: 0.95
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} transition={{
-            duration: 0.6
-          }} viewport={{
-            once: true
-          }} className="relative bg-gradient-to-br from-card to-secondary/20 border border-border rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden">
-              {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1)_0%,transparent_70%)]" /> */}
+                opacity: 0,
+                scale: 0.95
+              }} whileInView={{
+                opacity: 1,
+                scale: 1
+              }} transition={{
+                duration: 0.6
+              }} viewport={{
+                once: true
+              }} className="relative bg-gradient-to-br from-card to-secondary/20 border border-border rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden">
+                  {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1)_0%,transparent_70%)]" /> */}
               
               <div className="relative z-10">
                 <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
