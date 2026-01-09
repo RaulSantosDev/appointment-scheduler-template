@@ -61,13 +61,13 @@ export default function StepThree({
     <section className="max-w-md mx-auto text-white">        
 
       {/* Encabezado Estilo Premium */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <h2 className="text-4xl font-serif mb-2 tracking-tight">Confirma tu cita</h2>
         <p className="text-zinc-500 text-sm">Revisa los detalles antes de confirmar</p>
       </div>
 
       {/* Indicador de Pasos */}
-      <div className="flex gap-1.5 mb-10 justify-center">
+      <div className="flex gap-1.5 mb-6 justify-center">
         {[1, 2, 3, 4].map((step) => (
           <div 
             key={step} 

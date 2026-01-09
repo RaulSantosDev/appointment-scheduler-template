@@ -33,7 +33,7 @@ export default function Schedule() {
 
     <>
       <Header/>
-      <main className="min-h-screen bg-background text-foreground">
+      <main className="min-h-screen bg-background text-foreground bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100">
         <section className="max-w-3xl mx-auto py-6 px-4">
 
           {/* Header */}

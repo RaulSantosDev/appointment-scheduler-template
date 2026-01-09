@@ -35,23 +35,23 @@ export default function StepOne({
 
   // Clases reutilizables para los inputs
   const inputClasses = `
-    w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-white 
+    w-full rounded-xl border border-primary bg-zinc-900/50 px-4 py-3 text-white 
     placeholder:text-zinc-500 transition-all duration-200 
-    focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500
+    focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500 [&:-webkit-autofill]:shadow-[0_0_0_1000px_#141414_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]
   `
   const labelClasses = "flex items-center gap-2 text-primary text-sm font-medium mb-2"
 
 
   return (
-    <section className="max-w-md mx-auto bg-transparent text-zinc-100 ">
+    <section className="max-w-md mx-auto bg-transparent text-zinc-100  ">
       {/* Header Estilo Premium */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <h1 className="text-4xl font-serif mb-1 tracking-wide">Premium Barbershop</h1>
         <p className="text-zinc-400 font-light">Agenda tu cita</p>
       </div>
 
       {/* Indicador de Pasos */}
-      <div className="flex gap-1.5 mb-10 justify-center">
+      <div className="flex gap-1.5 mb-6 justify-center">
         {[1, 2, 3, 4].map((step) => (
           <div 
             key={step} 

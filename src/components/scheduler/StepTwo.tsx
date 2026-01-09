@@ -53,13 +53,13 @@ export default function StepTwo({
   return (
     <section className="max-w-md mx-auto text-white">
       {/* Encabezado Principal */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <h1 className="text-4xl font-serif mb-1 tracking-wide">Premium Barbershop</h1>
         <p className="text-zinc-400 font-light">Agenda tu cita</p>
       </div>
 
       {/* Indicador de Pasos */}
-      <div className="flex gap-1.5 mb-10 justify-center">
+      <div className="flex gap-1.5 mb-6 justify-center">
         {[1, 2, 3, 4].map((step) => (
           <div 
             key={step} 
@@ -96,15 +96,14 @@ export default function StepTwo({
       </div>
 
       { draft.date ? 
-        <p className="flex items-center text-xl gap-2 text-primary font-medium mb-3 uppercase tracking-widest justify-center">
-            
+        <p className="flex items-center text-xl gap-2 text-primary font-medium mb-3 uppercase tracking-widest justify-center">            
             <span className=" font-serif italic">{getDayWeek(draft.date)}</span> 
             <span>{ convertDateFormat(draft.date)}</span> 
         </p> : ""
       }
 
       {/* Título de sección de horarios */}
-      <div className="mb-6">
+      <div className="mb-4">
         <p className="text-[10px] tracking-[0.2em] text-zinc-500 font-bold uppercase text-center mb-4">
           Horarios disponibles
         </p>

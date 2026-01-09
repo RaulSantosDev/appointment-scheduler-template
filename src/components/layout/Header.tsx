@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="w-full border-b border-primary/30 bg-linear-to-r from-[#010100d8] via-primary/5  to-[#010100d8] ">
 
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-7xl max-h-30 mx-auto px-4 py-4 flex items-center justify-between">
         
         
         {/* Logo / Marca */}
@@ -31,7 +31,14 @@ export default function Header() {
             Precios
           </a>
           <a
-            href="#agendar"
+            href="#contacto"
+            className="text-text hover:text-primary transition"
+          >
+            Contacto
+          </a>
+          {/* <a
+          
+            href="/schedule"
             className="
               w-full p-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
               transition-all duration-300 transform active:scale-[0.98]
@@ -40,7 +47,7 @@ export default function Header() {
             "
           >
             Agendar
-          </a>
+          </a> */}
         </nav>
       </div>
       
