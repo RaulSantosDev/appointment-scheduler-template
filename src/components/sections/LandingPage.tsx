@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Scissors, Calendar, Clock, Star, ArrowRight, Settings, User } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
+import Gallery from './Gallery';
 export function LandingPage() {
   const navigate = useNavigate();
   const features = [{
@@ -23,10 +24,24 @@ export function LandingPage() {
           
       <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent  border-none"  id='contacto'/>
 
-
-      {/* Features Section */}
       <div className='bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100'>
-        <section className="py-10 relative">
+
+      {/* Galery Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className=" border border-primary rounded-xl p-4 sm:p-2 lg:p-6 text-center overflow-hidden">
+                {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1)_0%,transparent_70%)]" /> */}
+            
+            <div className="">
+              < Gallery />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+      {/* Features Section */}
+        <section className="pb-20 relative">
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div initial={{
@@ -79,41 +94,6 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div initial={{
-                opacity: 0,
-                scale: 0.95
-              }} whileInView={{
-                opacity: 1,
-                scale: 1
-              }} transition={{
-                duration: 0.6
-              }} viewport={{
-                once: true
-              }} className="relative bg-gradient-to-br from-card to-secondary/20 border border-border rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden">
-                  {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1)_0%,transparent_70%)]" /> */}
-              
-              <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
-                  Ven a visitarnos
-                </h2>
-                <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat corrupti fugit laborum quae provident placeat culpa doloremque molestias. Vero officiis sed expedita harum fugit minima molestiae dicta consequatur eaque incidunt.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button  onClick={() => navigate('/schedule')}>
-                    Agendar
-                  </Button>
-                  <Button variant="outline"  onClick={() => navigate('/admin')}>
-                    Ver Galería de imagenes
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
 
       </div>
       

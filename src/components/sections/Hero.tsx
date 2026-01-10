@@ -22,68 +22,68 @@ export default function Hero() {
 
         <motion.div initial={{
                 opacity: 0,
-                scale: 0.95
+                scale: 0.8
               }} whileInView={{
                 opacity: 1,
                 scale: 1
               }} transition={{
-                duration: 0.6
+                duration: 1
               }} viewport={{
                 once: true
-              }} className="">
+              }} className="order-2 md:order-1">
 
         {/* TEXTO */}
-        <div className="text-center md:text-left md:translate-x-[50px] mb-4 order-2 md:order-1">
-          <div className="flex items-center justify-center gap-3 mt-6 md:justify-start">
-            <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
-              Muna, Yucatán, México.
+          <div className="text-center md:text-left md:translate-x-[50px] mb-4 ">
+            <div className="flex items-center justify-center gap-3 mt-6 md:justify-start">
+              <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
+                Muna, Yucatán, México.
+              </p>
+            </div>
+
+            <h1 className="text-6xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-white mt-4">
+              Tu estilo, <br />
+              <span className="text-primary">tu mejor </span> <p >versión.</p>
+            </h1>
+
+            <p className="text-base md:text-lg text-text max-w-xl leading-relaxed">
+              Experimenta el ritual de la barbería clásica fusionado
+              con el estilo urbano contemporáneo.
+            </p>
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/schedule"
+                className="
+                w-auto p-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
+                transition-all duration-300 transform active:scale-[0.98]
+                hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+                disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
+              "
+              >
+                Agendar cita
+              </Link>
+
+              <button
+                className="
+                  bg-bg
+                  border border-primary/30
+                  text-white
+                  px-10 py-4
+                  font-medium uppercase text-sm
+                  rounded-sm
+                  hover:border-primary hover:text-primary
+                  transition
+                  hover:cursor-pointer
+                "
+              >
+                Ver servicios
+              </button>
+            </div>
+
+            <p className="mt-3 text-xs text-gray-500">
+              Cita en menos de 30 segundos
             </p>
           </div>
-
-          <h1 className="text-6xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-white mt-4">
-            Tu estilo, <br />
-            <span className="text-primary">tu mejor </span> <p >versión.</p>
-          </h1>
-
-          <p className="text-base md:text-lg text-text max-w-xl leading-relaxed">
-            Experimenta el ritual de la barbería clásica fusionado
-            con el estilo urbano contemporáneo.
-          </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/schedule"
-              className="
-              w-auto p-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
-              transition-all duration-300 transform active:scale-[0.98]
-              hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
-              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
-            "
-            >
-              Agendar cita
-            </Link>
-
-            <button
-              className="
-                bg-bg
-                border border-primary/30
-                text-white
-                px-10 py-4
-                font-medium uppercase text-sm
-                rounded-sm
-                hover:border-primary hover:text-primary
-                transition
-                hover:cursor-pointer
-              "
-            >
-              Ver servicios
-            </button>
-          </div>
-
-          <p className="mt-3 text-xs text-gray-500">
-            Cita en menos de 30 segundos
-          </p>
-        </div>
 
         </motion.div>
 
@@ -98,7 +98,7 @@ export default function Hero() {
 
           <motion.div initial={{
                 opacity: 0,
-                scale: 0.95
+                scale: 0.1
               }} whileInView={{
                 opacity: 1,
                 scale: 1
