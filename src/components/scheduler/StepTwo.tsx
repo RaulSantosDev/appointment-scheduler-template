@@ -17,6 +17,7 @@ export default function StepTwo({
   onNext,
   onBack,
 }: StepTwoProps) {
+
   const [loading, setLoading] = useState(false)
   const [slots, setSlots] = useState<string[]>([])
   const [error, setError] = useState<string | null>(null)
@@ -52,6 +53,7 @@ export default function StepTwo({
 
   return (
     <section className="max-w-md mx-auto text-white">
+
       {/* Encabezado Principal */}
       <div className="text-center mb-4">
         <h1 className="text-4xl font-serif mb-1 tracking-wide">Premium Barbershop</h1>
@@ -71,8 +73,9 @@ export default function StepTwo({
       {/* Selector de Fecha Estilizado */}
       <div className="mb-5">
         <label className="flex items-center gap-2 text-primary text-sm font-medium mb-3 uppercase tracking-widest">
-          <CalendarIcon size={16} /> Fecha deseada
+          <CalendarIcon size={16} /> Selecciona el día de tu cita
         </label>
+        
         <div className="relative group">
           <input
             type="date"

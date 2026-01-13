@@ -1,7 +1,7 @@
 import { useState } from "react"
 import type { AppointmentDraft } from "../types/AppointmentDraft"
 
-import StepOne from "../components/scheduler/OneStep"
+import StepOne from "../components/scheduler/StepOne"
 import StepTwo from "../components/scheduler/StepTwo"
 import StepThree from "../components/scheduler/StepThree"
 

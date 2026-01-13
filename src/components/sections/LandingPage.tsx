@@ -22,7 +22,7 @@ export function LandingPage() {
   return <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
           
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent  border-none"  id='contacto'/>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent  border-none"  />
 
       <div className='bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100'>
 
@@ -63,7 +63,7 @@ export function LandingPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8" >
+            <div className="grid md:grid-cols-3 gap-8" id='contacto' >
               {features.map((feature, index) => <motion.div key={feature.title} initial={{
                   opacity: 0,
                   y: 30

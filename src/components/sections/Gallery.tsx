@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from '../ui/Button'; 
-import { useNavigate } from 'react-router-dom';
+
 import { images } from '../../utilities/data';
 
 // 1. Importaciones de Swiper
@@ -14,7 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 export default function Gallery(): React.JSX.Element {
-  const navigate = useNavigate();
+  
 
   
 
@@ -22,7 +21,7 @@ export default function Gallery(): React.JSX.Element {
     // Aumenté la altura a h-[400px] o h-[500px] para que se luzca el carrusel
     <div className="relative w-full py-1">
       
-      <div className="max-w-7xl mx-auto px-4 mb-8">
+      <div className="max-w-7xl mx-auto px-4 mb-4 md:mb-8">
         <h2 className="text-3xl text-primary font-bold mb-2">Nuestra Galería</h2>
         <p className="text-muted">Desliza para ver más</p>
       </div>

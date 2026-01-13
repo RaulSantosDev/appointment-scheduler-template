@@ -75,6 +75,7 @@ export default function StepThree({
           />
         ))}
       </div>
+      
       {/* Tarjeta de Resumen (Card) */}
       <div className="bg-zinc-900/40 border border-zinc-800 rounded-4xl p-6 space-y-0 divide-y divide-zinc-800/50 shadow-2xl">
         <SummaryRow 

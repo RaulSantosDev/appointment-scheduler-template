@@ -7,12 +7,16 @@ export default function Header() {
       <div className="max-w-7xl max-h-30 mx-auto px-4 py-4 flex flex-col items-center justify-between md:flex-row ">        
         
         {/* Logo / Marca */}
-        <span className="text-4xl tracking-widest font-display text-text text-center">
+        <span className="text-3xl tracking-widest font-display text-text text-center">
           <span className="text-primary font-logotipo md:text-5xl md:mb-6 text-metallic border border-primary p-2 rounded-sm">
             < Link to="/">
               LA CHOZA
             </Link>
-          </span> <span className="text-lg md:text-4xl">BARBERSHOP</span>
+          </span> 
+          
+          <span className="text-lg md:text-4xl">
+            BARBERSHOP
+          </span>
         </span>
 
         {/* Navegación */}
@@ -36,18 +40,7 @@ export default function Header() {
           >
             Contacto
           </a>
-          {/* <a
           
-            href="/schedule"
-            className="
-              w-full p-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
-              transition-all duration-300 transform active:scale-[0.98]
-              hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
-              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
-            "
-          >
-            Agendar
-          </a> */}
         </nav>
       </div>
       
