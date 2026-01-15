@@ -3,42 +3,38 @@ import { Scissors, Shield, Clock } from "lucide-react";
 export default function Below() {
   const features = [
     {
-      icon: <Scissors className="w-10 h-10 text-[#cca45a]" strokeWidth={1.5} />,
+      icon: <Scissors className="w-10 h-10 text-primary" strokeWidth={1.5} />,
       title: "Corte clásico y moderno",
-      description: "Estilo impecable y a la medida."
+      description: "Estilo impecable y a la medida.",
     },
     {
-      icon: <Shield className="w-10 h-10 text-[#cca45a]" strokeWidth={1.5} />,
+      icon: <Shield className="w-10 h-10 text-primary" strokeWidth={1.5} />,
       title: "Barbero certificado",
-      description: "Expertos altamente calificados."
+      description: "Expertos altamente calificados.",
     },
     {
-      icon: <Clock className="w-10 h-10 text-[#cca45a]" strokeWidth={1.5} />,
+      icon: <Clock className="w-10 h-10 text-primary" strokeWidth={1.5} />,
       title: "Sin filas, con cita",
-      description: "Atención sin esperas, máxima comodidad."
-    }
+      description: "Atención sin esperas, máxima comodidad.",
+    },
   ];
 
   return (
-    <section className="bg-black py-12 border-t border-[#cca45a]/30 relative z-20">
-       
-      
-      
+    <section className="bg-black py-12 border-t border-primary/30 relative z-20">
       {/* Contenedor Principal */}
       <div className="max-w-7xl mx-auto px-6 z-1">
-        
         {/* Grid de 3 columnas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="
                 flex items-start gap-5 
                 p-6 md:p-8 
                 rounded-lg 
                 border border-white/10 
-                bg-[#0a0a0a] 
-                hover:border-[#cca45a]/50 
+                bg-bg
+                hover:border-primary/50 
                 transition-colors duration-300
                 group
               "
@@ -60,7 +56,6 @@ export default function Below() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

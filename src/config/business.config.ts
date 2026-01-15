@@ -1,4 +1,4 @@
-import type { Service } from "../types/Service";
+
 
 // Solo se cambia este config y el producto se adapta a otro negocio
 export const businessConfig = {
@@ -21,7 +21,6 @@ export const businessConfig = {
       name: "Corte + Barba",
       duration: 60,
       price: 220,
-    }
+    },
   ],
-}
-
+};
