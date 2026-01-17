@@ -1,14 +1,14 @@
-import { useState, } from 'react'
-import { User, Phone, Mail, Scissors } from 'lucide-react' 
-import type { Service } from '../../types/Service'
-import type { AppointmentDraft } from '../../types/AppointmentDraft'
-import {AnimatePresence, motion } from 'framer-motion'
+import { useState } from "react";
+import { User, Phone, Mail, Scissors } from "lucide-react";
+import type { Service } from "../../types/Service";
+import type { AppointmentDraft } from "../../types/AppointmentDraft";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface StepOneProps {
-  services: Service[]
-  draft: AppointmentDraft
-  onChange: (draft: AppointmentDraft) => void
-  onNext: () => void
+  services: Service[];
+  draft: AppointmentDraft;
+  onChange: (draft: AppointmentDraft) => void;
+  onNext: () => void;
 }
 
 // 2. Definir la variante de animación (Elegante y suave)
@@ -16,7 +16,7 @@ const variants = {
   initial: { opacity: 0, x: 10 },
   animate: { opacity: 1, x: 0 },
   exit: { opacity: 0, x: -10 },
-}
+};
 
 export default function StepOne({
   services,
@@ -24,46 +24,47 @@ export default function StepOne({
   onChange,
   onNext,
 }: StepOneProps) {
-
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   function updateDraft<K extends keyof AppointmentDraft>(
     key: K,
     value: AppointmentDraft[K]
   ) {
-    onChange({ ...draft, [key]: value })
+    onChange({ ...draft, [key]: value });
   }
 
   const isValid =
     Boolean(draft.name) &&
     Boolean(draft.phone) &&
     Boolean(draft.email) &&
-    Boolean(draft.service)
+    Boolean(draft.service);
 
   // Clases reutilizables para los inputs
   const inputClasses = `
     w-full rounded-xl border border-primary bg-zinc-900/50 px-4 py-3 text-white 
     placeholder:text-zinc-500 transition-all duration-200 
     focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500 [&:-webkit-autofill]:shadow-[0_0_0_1000px_#141414_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]
-  `
-  const labelClasses = "flex items-center gap-2 text-primary text-sm font-medium mb-2"  
+  `;
+
+  const labelClasses =
+    "flex items-center gap-2 text-primary text-sm font-medium mb-2 ";
 
   return (
-    <section className="max-w-md mx-auto bg-transparent text-zinc-100  ">
-      <AnimatePresence mode="wait">
+    <section className="max-w-md mx-auto bg-transparent text-zinc-100 animate-in fade-in slide-in-from-right-4 duration-500">
+      {/* <AnimatePresence mode="wait">
         <motion.div // Clave única para que Framer sepa que el componente cambió
           variants={variants}
           initial="initial"
           animate="animate"
           exit="exit"
           transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
+        > */}
           {/* Header Estilo Premium */}
           <div className="text-center mb-4">
             <h1 className="text-4xl font-serif mb-1 tracking-wide">
-              Premium Barbershop
+              Agrega tus Datos
             </h1>
-            <p className="text-zinc-400 font-light">Agenda tu cita</p>
+            {/* <p className="text-zinc-400 font-light">Agenda tu cita</p> */}
           </div>
 
           {/* Indicador de Pasos */}
@@ -112,6 +113,7 @@ export default function StepOne({
                 />
               </div>
 
+              {/* Email */}
               <div>
                 <label htmlFor="email" className={labelClasses}>
                   <Mail size={18} /> Email
@@ -128,7 +130,7 @@ export default function StepOne({
               </div>
             </div>
 
-            {/* Servicio */}
+            {/* Tipo servicio */}
             <div>
               <label htmlFor="service" className={labelClasses}>
                 <Scissors size={18} /> Servicio
@@ -193,8 +195,8 @@ export default function StepOne({
               </button>
             </div>
           </form>
-        </motion.div>
-      </AnimatePresence>
+        {/* </motion.div>
+      </AnimatePresence> */}
     </section>
   );
 }

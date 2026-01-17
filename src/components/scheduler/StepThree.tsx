@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { User, Scissors, Calendar, Clock, Phone } from "lucide-react"; // Iconos para el diseño premium
+import { User, Scissors, Calendar, Clock, Phone, Contact, ContactRound, AtSign, MessageCircle, Smartphone } from "lucide-react"; // Iconos para el diseño premium
 import type { AppointmentDraft } from "../../types/AppointmentDraft";
 import { createAppointment } from "../../services/n8n.api";
 import { convertDateFormat, getDayWeek } from "../../utilities";
-import { AnimatePresence, motion } from "framer-motion";
 
 interface StepThreeProps {
   draft: AppointmentDraft;
@@ -11,11 +10,7 @@ interface StepThreeProps {
   onConfirmed: () => void;
 }
 
-const variants = {
-  initial: { opacity: 0, x: 10 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -10 },
-};
+
 
 export default function StepThree({
   draft,
@@ -63,23 +58,23 @@ export default function StepThree({
   }
 
   return (
-    <section className="max-w-md mx-auto text-white">
-      <AnimatePresence mode="wait">
+    <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500">
+      {/* <AnimatePresence mode="wait">
         <motion.div // Clave única para que Framer sepa que el componente cambió
           variants={variants}
           initial="initial"
           animate="animate"
           exit="exit"
           transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
+        > */}
           {/* Encabezado Estilo Premium */}
           <div className="text-center mb-4">
             <h2 className="text-4xl font-serif mb-2 tracking-tight">
-              Confirma tu cita
+              Confirma tus datos
             </h2>
-            <p className="text-zinc-500 text-sm">
+            {/* <p className="text-zinc-500 text-sm">
               Revisa los detalles antes de confirmar
-            </p>
+            </p> */}
           </div>
 
           {/* Indicador de Pasos */}
@@ -95,15 +90,26 @@ export default function StepThree({
           </div>
 
           {/* Tarjeta de Resumen (Card) */}
-          <div className="bg-zinc-900/40 border border-zinc-800 rounded-4xl p-6 space-y-0 divide-y divide-zinc-800/50 shadow-2xl">
+          <div className="bg-zinc-900/40 border border-zinc-800 rounded-4xl p-6 space-y-0 divide-y divide-zinc-800/50 shadow-2xl ">
             <SummaryRow
               icon={<User size={20} />}
               label="Cliente"
               value={draft.name}
+            
+            />
+            <SummaryRow
+              icon={<Smartphone size={20} />}
+              label="Contacto"
+              value={
+                <div className="flex items-center gap-2">
+                  <Phone size={15} className="text-muted"/> <span>{draft.phone}</span>
+                </div>
+              }
               subValue={
                 <div className="flex items-center gap-2 ">
-                  <Phone size={15} />
-                  <span>{draft.phone}</span>
+                  <AtSign size={15} className="text-muted"/>
+                  <p>{draft.email}</p> 
+
                 </div>
               }
             />
@@ -162,8 +168,8 @@ export default function StepThree({
               {loading ? "Confirmando..." : "Confirmar cita"}
             </button>
           </div>
-        </motion.div>
-      </AnimatePresence>
+        {/* </motion.div>
+      </AnimatePresence> */}
     </section>
   );
 }
@@ -180,14 +186,15 @@ function SummaryRow({
 }: {
   icon: React.ReactNode;
   label: string;
-  value: string;
+  value: React.ReactNode;
   subValue?: React.ReactNode;
   price?: string;
+  email?: string
 }) {
   return (
-    <div className="flex items-start gap-4 py-5 first:pt-0 last:pb-0">
+    <div className="flex items-center gap-4 py-5 first:pt-0 last:pb-0 ">
       {/* Contenedor del Icono */}
-      <div className="bg-zinc-800/80 p-3 rounded-xl text-primary shadow-inner">
+      <div className="bg-zinc-800/80 p-3 rounded-xl text-primary shadow-inner ">
         {icon}
       </div>
 
@@ -196,8 +203,8 @@ function SummaryRow({
         <p className="text-[10px] uppercase tracking-[0.15em] text-zinc-500 font-bold mb-0.5">
           {label}
         </p>
-        <div className="flex justify-between items-baseline">
-          <h3 className="text-lg font-bold text-zinc-100 truncate">{value}</h3>
+        <div className="flex justify-between items-baseline ">
+          <h3 className="text-lg font-bold truncate text-text/90">{value}</h3>
           {price && (
             <span className="text-primary font-serif text-2xl leading-none ml-2">
               {price}
@@ -206,7 +213,7 @@ function SummaryRow({
         </div>
 
         {subValue && (
-          <p className="text-sm  font-medium leading-tight">
+          <p className="text-sm  font-medium leading-tight text-text">
             <span>{subValue}</span>
           </p>
         )}

@@ -29,21 +29,22 @@ export default function Schedule() {
 
   return (
     <>
-      <Header />
+      <Header />      
 
-      <main className="min-h-screen bg-background w-full p-1 text-foreground bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100">
-        <section className="max-w-3xl mx-auto py-6 ">
-          {/* Header */}
-          {/* <header className="mb-10 text-center">
-            
-            <p className="text-muted ">
-              Paso {step} de 4
-            </p>
+      <main className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden bg-neutral-950 p-4 min-w-screen">
 
-          </header> */}
+           {/* FONDO */}
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop"
+              alt="Fondo Barbería"
+              className="w-full h-full object-cover grayscale "
+            />
+            <div className="absolute inset-0 bg-radial from-[#000000a5] from-1% to-[#010100] opacity-100 " />
+          </div>
+          
 
-          {/* Step content */}
-          <div className="rounded-xl border border-primary p-6 bg-surface md:max-w-3/5 mx-auto">
+          <div className="relative rounded-xl border border-primary p-6 bg-surface mx-auto min-w-2/5">
             {step === 1 && (
               <StepOne
                 services={services}
@@ -80,7 +81,6 @@ export default function Schedule() {
               />
             )}
           </div>
-        </section>
       </main>
 
       <Footer />

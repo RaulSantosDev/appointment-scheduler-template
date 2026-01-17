@@ -2,33 +2,25 @@ import type { AppointmentDraft } from "../../types/AppointmentDraft";
 import { CheckCircle2, Calendar, Clock, MapPin } from "lucide-react";
 import { convertDateFormat, getDayWeek } from "../../utilities";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 
 interface StepFourProps {
   draft: AppointmentDraft;
   onReset: () => void;
 }
 
-const variants = {
-  initial: { opacity: 0, x: 10 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -10 },
-};
+
 
 export default function StepFour({ draft, onReset }: StepFourProps) {
   return (
-    <>
-      <AnimatePresence mode="wait">
-        <motion.div // Clave única para que Framer sepa que el componente cambió
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <section className="flex flex-col items-center justify-center min-h-150  text-white p-2 font-sans animate-in fade-in duration-500">
+    <>      
+          <section className="flex flex-col items-center justify-center min-w-80 text-white p-2 font-sans animate-in fade-in duration-500">
+
+            <h2 className="text-3xl font-serif mb-4 tracking-wide text-white">
+              ¡Cita confirmada! 
+            </h2>
+
             {/* 1. Indicador de progreso (Barra superior) */}
-            <div className="flex gap-1.5 mb-6">
+            <div className="flex gap-1.5 mb-2">
               {[1, 2, 3, 4].map((step) => (
                 <div
                   key={step}
@@ -39,12 +31,9 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
               ))}
             </div>
 
-            <h2 className="text-3xl font-serif mb-4 tracking-wide text-white">
-              ¡Cita confirmada!
-            </h2>
 
             {/* 2. Icono de éxito */}
-            <div className="mb-4">
+            <div className="">
               <div className="bg-[#1a2e1a] p-3 rounded-full">
                 <CheckCircle2 className="w-10 h-10 text-success" />
               </div>
@@ -117,8 +106,7 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
               </button>
             </Link>
           </section>
-        </motion.div>
-      </AnimatePresence>
+        
     </>
   );
 }

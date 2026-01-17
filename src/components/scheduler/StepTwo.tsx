@@ -59,21 +59,21 @@ export default function StepTwo({
   const isValid = Boolean(draft.date && draft.time);
 
   return (
-    <section className="max-w-md mx-auto text-white">
-      <AnimatePresence mode="wait">
+    <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500">
+      {/* <AnimatePresence mode="wait">
         <motion.div // Clave única para que Framer sepa que el componente cambió
           variants={variants}
           initial="initial"
           animate="animate"
           exit="exit"
           transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
+        > */}
           {/* Encabezado Principal */}
           <div className="text-center mb-4">
             <h1 className="text-4xl font-serif mb-1 tracking-wide">
-              Premium Barbershop
+              Selecciona tu horario
             </h1>
-            <p className="text-zinc-400 font-light">Agenda tu cita</p>
+            {/* <p className="text-zinc-400 font-light">Agenda tu cita</p> */}
           </div>
 
           {/* Indicador de Pasos */}
@@ -198,8 +198,8 @@ export default function StepTwo({
               Continuar
             </button>
           </div>
-        </motion.div>
-      </AnimatePresence>
+        {/* </motion.div>
+      </AnimatePresence> */}
     </section>
   );
 }

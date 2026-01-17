@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Clock, Star, User } from "lucide-react";
 import Gallery from "./Gallery";
+import { WhatsAppLink } from "../../lib/WhatsApp";
 export function LandingPage() {
   const features = [
     {
@@ -15,9 +16,9 @@ export function LandingPage() {
     },
     {
       icon: User,
-      title: "Contacto",
+      title: "Barbero",
       description: "Marcos Tun",
-      Cel: "📲 WhatsApp",
+      Cel: "WhatsApp",
     },
   ];
   return (
@@ -85,7 +86,7 @@ export function LandingPage() {
                     delay: index * 0.1,
                   }}
                   viewport={{
-                    once: true,
+                    once: false,
                   }}
                   className="group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300"
                 >
@@ -94,16 +95,21 @@ export function LandingPage() {
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:glow-gold transition-all">
                       <feature.icon className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="text-xl font-display text-foreground mb-3">
+                    <h3 className="text-xl font-display text-foreground mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-primary text-4xl">
+                    <p className="text-primary text-4xl items-center">
                       {feature.description}
-                      <p className="text-2xl">
-                        <a href="https://wa.link/3skshn" target="">
-                          {feature.Cel}
-                        </a>
-                      </p>
+                      { feature.Cel && <button className="
+                        w-full p-2 mt-2 bg-yellow-400/80 text-black rounded-xl font-bold text-lg
+                        transition-all duration-300 transform active:scale-[0.98]
+                        hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+                        disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
+                      ">
+                        <p>
+                          <WhatsAppLink/>
+                        </p>
+                      </button>}
                     </p>
                   </div>
                 </motion.div>

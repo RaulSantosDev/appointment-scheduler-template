@@ -16,7 +16,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-radial from-[#000000a5] from-1% to-[#010100] opacity-100 " />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 items-center md:grid-cols-2">
+        <div className="relative  max-w-7xl mx-auto px-6 grid grid-cols-1 items-center md:grid-cols-2">
           <motion.div
             initial={{
               opacity: 0,
@@ -27,15 +27,15 @@ export default function Hero() {
               scale: 1,
             }}
             transition={{
-              duration: 1,
+              duration: 0.6,
             }}
             viewport={{
-              once: true,
+              once: false,
             }}
             className="order-2 md:order-1"
           >
             {/* TEXTO */}
-            <div className="text-center md:text-left md:translate-x-12.5 mb-4 ">
+            <div className="text-center md:text-left md:translate-x-14 mb-4 ">
               <div className="flex items-center justify-center gap-3 mt-6 md:justify-start">
                 <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
                   Muna, Yucatán, México.
