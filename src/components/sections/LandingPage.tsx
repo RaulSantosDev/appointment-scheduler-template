@@ -5,6 +5,12 @@ import { WhatsAppLink } from "../../lib/WhatsApp";
 export function LandingPage() {
   const features = [
     {
+      icon: User,
+      title: "Barbero",
+      description: "Marcos Tun",
+      Cel: "WhatsApp",
+    },
+    {
       icon: Star,
       title: "Atencion",
       description: "Experiencia Premium.",
@@ -13,12 +19,6 @@ export function LandingPage() {
       icon: Clock,
       title: "Horario de atencion",
       description: "8:00 am a 7:00 pm.",
-    },
-    {
-      icon: User,
-      title: "Barbero",
-      description: "Marcos Tun",
-      Cel: "WhatsApp",
     },
   ];
   return (
@@ -29,7 +29,7 @@ export function LandingPage() {
 
       <div className="bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100">
         {/* Galery Section */}
-        <section className="py-20">
+        <section className="py-10">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className=" border border-primary rounded-xl p-4 sm:p-2 lg:p-6 text-center overflow-hidden">
               {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1)_0%,transparent_70%)]" /> */}
@@ -59,7 +59,7 @@ export function LandingPage() {
               viewport={{
                 once: true,
               }}
-              className="text-center mb-16"
+              className="text-center mb-10"
             >
               <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
                 Todo lo que necesitas

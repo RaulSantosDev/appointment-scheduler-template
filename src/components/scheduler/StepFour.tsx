@@ -2,6 +2,7 @@ import type { AppointmentDraft } from "../../types/AppointmentDraft";
 import { CheckCircle2, Calendar, Clock, MapPin } from "lucide-react";
 import { convertDateFormat, getDayWeek } from "../../utilities";
 import { Link } from "react-router-dom";
+import { WhatsAppLink } from "../../lib/WhatsApp";
 
 interface StepFourProps {
   draft: AppointmentDraft;
@@ -47,7 +48,7 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
 
             {/* 4. Tarjeta de Resumen (Card) */}
             <div className="w-full max-w-85 bg-[#1a1a1a] border border-primary/20 rounded-2xl p-6 mb-4 shadow-2xl">
-              <div className="flex flex-col items-center space-y-4">
+              <div className="flex flex-col items-center space-y-2">
                 {/* Fecha */}
 
                 <div className="flex items-center gap-2 text-primary">
@@ -94,17 +95,30 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
 
             {/* 5. Pie de página y Botón */}
             <p className="text-gray-500 text-xs mb-4 italic">
-              Recibirás un recordatorio antes de tu cita
+              Para cualquier aclaración envíanos un WhatsApp
             </p>
 
-            <Link to="/">
-              <button
-                onClick={onReset}
-                className="w-full max-w-70 p-3 border-2 border-primary text-primary rounded-xl font-bold uppercase tracking-widest text-xs transition-all hover:bg-primary hover:text-black active:scale-95 hover:cursor-pointer"
-              >
-                Volver a página principal
-              </button>
-            </Link>
+            <div className="text-center">
+
+                <button
+                  
+                  className="w-full max-w-70 p-2 border-2 mb-1 border-primary text-primary rounded-xl font-bold uppercase tracking-widest text-xs transition-all hover:bg-primary hover:text-black active:scale-95 hover:cursor-pointer"
+                >
+                  <WhatsAppLink/>
+                </button>
+                  
+              
+
+              <Link to="/">
+                <button
+                  onClick={onReset}
+                  className="w-full max-w-70 p-3 border-2 border-primary text-primary rounded-xl font-bold uppercase tracking-widest text-xs transition-all hover:bg-primary hover:text-black active:scale-95 hover:cursor-pointer"
+                >
+                  Volver a página principal
+                </button>
+              </Link>
+
+            </div>
           </section>
         
     </>

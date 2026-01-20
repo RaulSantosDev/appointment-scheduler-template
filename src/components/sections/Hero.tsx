@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { LandingPage } from "./LandingPage";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <>
-      <section className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden bg-neutral-950 ">
+      <section className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden ">
         {/* FONDO */}
         <div className="absolute inset-0  ">
           <img
@@ -16,7 +15,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-radial from-[#000000a5] from-1% to-[#010100] opacity-100 " />
         </div>
 
-        <div className="relative  max-w-7xl mx-auto px-6 grid grid-cols-1 items-center md:grid-cols-2">
+        <div className="relative mx-auto px-6 grid grid-cols-1 items-center md:grid-cols-2 ">
           <motion.div
             initial={{
               opacity: 0,
@@ -33,10 +32,10 @@ export default function Hero() {
               once: false,
             }}
             className="order-2 md:order-1"
-          >
+            >
             {/* TEXTO */}
             <div className="text-center md:text-left md:translate-x-14 mb-4 ">
-              <div className="flex items-center justify-center gap-3 mt-6 md:justify-start">
+              <div className="flex items-center justify-center gap-3 mt-6 md:justify-start ">
                 <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
                   Muna, Yucatán, México.
                 </p>
@@ -84,7 +83,7 @@ export default function Hero() {
               </div>
 
               <p className="mt-3 text-xs text-gray-500">
-                Cita en menos de 60 segundos
+                Agenda tu cita en menos de 60 segundos
               </p>
             </div>
           </motion.div>
@@ -116,7 +115,7 @@ export default function Hero() {
               <img
                 src="../../../public/460638877_486605284244244_179908150592s36s02823_n.png"
                 alt="La Choza Barbershop"
-                className="relative w-70 md:w-120 md:h-auto rounded-full object-cover cursor-pointer transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
+                className="relative w-90 md:w-120 md:h-auto rounded-full object-cover cursor-pointer transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
               />
             </motion.div>
           </div>
@@ -127,7 +126,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <LandingPage />
+      
     </>
   );
 }

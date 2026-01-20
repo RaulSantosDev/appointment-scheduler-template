@@ -1,6 +1,7 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Hero from "../components/sections/Hero";
+import { LandingPage } from "../components/sections/LandingPage";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
         <Header />
 
         <Hero />
+
+        <LandingPage />
 
         <Footer />
       </div>

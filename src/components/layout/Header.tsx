@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="w-full border-b border-primary/30 bg-linear-to-r from-[#010100d8] via-primary/5  to-[#010100d8] py-2 md:py-1">
 
-      <div className="max-w-7xl max-h-30 mx-auto px-4 py-4 flex flex-col items-center justify-between md:flex-row ">        
+      <div className="max-h-30 mx-auto px-4 py-4 flex flex-col items-center justify-between md:flex-row ">        
         
         {/* Logo / Marca */}
         <span className="text-4xl tracking-widest font-display text-text text-center">
