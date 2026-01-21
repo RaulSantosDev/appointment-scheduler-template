@@ -2,37 +2,42 @@ import { useState } from "react";
 import { User, Phone, Mail, Scissors } from "lucide-react";
 import type { Service } from "../../types/Service";
 import type { AppointmentDraft } from "../../types/AppointmentDraft";
-import { AnimatePresence, motion } from "framer-motion";
 
 interface StepOneProps {
   services: Service[];
   draft: AppointmentDraft;
-  onChange: (draft: AppointmentDraft) => void;
+  setDraft: (draft: AppointmentDraft) => void;
   onNext: () => void;
 }
-
-// 2. Definir la variante de animación (Elegante y suave)
-const variants = {
-  initial: { opacity: 0, x: 10 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -10 },
-};
 
 export default function StepOne({
   services,
   draft,
-  onChange,
+  setDraft,
   onNext,
 }: StepOneProps) {
   const [open, setOpen] = useState(false);
 
+  // Guarda en el state lo que se escriba en el input
   function updateDraft<K extends keyof AppointmentDraft>(
     key: K,
-    value: AppointmentDraft[K]
+    value: AppointmentDraft[K],
   ) {
-    onChange({ ...draft, [key]: value });
+    setDraft({ ...draft, [key]: value });
   }
 
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
+    setDraft({
+      ...draft,
+      [name]: value,
+    });
+  };
+
+  // Valida que los datos existan antes de continuar
   const isValid =
     Boolean(draft.name) &&
     Boolean(draft.phone) &&
@@ -50,153 +55,148 @@ export default function StepOne({
     "flex items-center gap-2 text-primary text-sm font-medium mb-2 ";
 
   return (
-    <section className="max-w-md mx-auto bg-transparent text-zinc-100 animate-in fade-in slide-in-from-right-4 duration-500">
-      {/* <AnimatePresence mode="wait">
-        <motion.div // Clave única para que Framer sepa que el componente cambió
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        > */}
-          {/* Header Estilo Premium */}
-          <div className="text-center mb-4">
-            <h1 className="text-4xl font-serif mb-1 tracking-wide">
-              Agrega tus Datos
-            </h1>
-            {/* <p className="text-zinc-400 font-light">Agenda tu cita</p> */}
+    // Contenedor principal
+    <section className="max-w-md mx-auto text-text animate-in fade-in slide-in-from-right-4 duration-500">
+      <div className="text-center mb-4">
+        <h1 className="text-4xl font-serif mb-1 tracking-wide">
+          Agrega tus Datos
+        </h1>
+      </div>
+
+      {/* Indicador de Pasos */}
+      <div className="flex gap-1.5 mb-6 justify-center">
+        {[1, 2, 3, 4].map((step) => (
+          <div
+            key={step}
+            className={`h-1 w-8 rounded-full ${
+              step === 1 ? "bg-primary" : "bg-primary/20"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Formulario */}
+      <form className="space-y-5" onSubmit={onNext}>
+        {/* Nombre */}
+        <div>
+          <label htmlFor="name" className={labelClasses}>
+            <User size={18} /> Nombre completo
+          </label>
+          <input
+            name="name"
+            placeholder="Tu nombre"
+            value={draft.name}
+            // onChange={(e) => updateDraft("name", e.target.value)}
+            onChange={handleChange}
+            className={inputClasses}
+          />
+        </div>
+
+        {/* Teléfono y Correo en Grid */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="number" className={labelClasses}>
+              <Phone size={18} /> Teléfono
+            </label>
+            <input
+              name="phone"
+              id="number"
+              type="tel"
+              placeholder="10 Dígitos"
+              value={draft.phone}
+              onChange={handleChange}
+              className={inputClasses}
+              pattern="[0-9]{10}"
+              required
+            />
           </div>
 
-          {/* Indicador de Pasos */}
-          <div className="flex gap-1.5 mb-6 justify-center">
-            {[1, 2, 3, 4].map((step) => (
-              <div
-                key={step}
-                className={`h-1 w-8 rounded-full ${
-                  step === 1 ? "bg-primary" : "bg-primary/20"
-                }`}
-              />
-            ))}
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className={labelClasses}>
+              <Mail size={18} /> Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tu@email.com"
+              value={draft.email}
+              onChange={handleChange}
+              className={inputClasses}
+              required
+            />
           </div>
+        </div>
 
-          {/* Formulario */}
-          <form className="space-y-5" onSubmit={onNext}>
-            {/* Nombre */}
-            <div>
-              <label htmlFor="Name" className={labelClasses}>
-                <User size={18} /> Nombre completo
-              </label>
-              <input
-                id="Name"
-                placeholder="Tu nombre"
-                value={draft.name}
-                onChange={(e) => updateDraft("name", e.target.value)}
-                className={inputClasses}
-              />
-            </div>
+        {/* Tipo servicio */}
+        <div>
+          <label htmlFor="service" className={labelClasses}>
+            <Scissors size={18} /> Servicio
+          </label>
 
-            {/* Teléfono y Correo en Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="Number" className={labelClasses}>
-                  <Phone size={18} /> Teléfono
-                </label>
-                <input
-                  id="Number"
-                  type="tel"
-                  placeholder="10 Dígitos"
-                  value={draft.phone}
-                  onChange={(e) => updateDraft("phone", e.target.value)}
-                  className={inputClasses}
-                  pattern="[0-9]{10}"
-                  required
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label htmlFor="email" className={labelClasses}>
-                  <Mail size={18} /> Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="tu@email.com"
-                  value={draft.email}
-                  onChange={(e) => updateDraft("email", e.target.value)}
-                  className={inputClasses}
-                  required
-                />
-              </div>
-            </div>
-
-            {/* Tipo servicio */}
-            <div>
-              <label htmlFor="service" className={labelClasses}>
-                <Scissors size={18} /> Servicio
-              </label>
-
-              <div className="relative">
-                <div className="relative">
-                  <button
-                    type="button"
-                    id="service"
-                    onClick={() => setOpen(!open)}
-                    className={`${inputClasses} w-full text-left flex justify-between items-center cursor-pointer rounded`}
-                  >
-                    <span
-                      className={draft.service ? "text-white" : "text-zinc-400"}
-                    >
-                      {draft.service
-                        ? draft.service.name
-                        : "Selecciona un servicio"}
-                    </span>
-                    <span className="text-zinc-400">▾</span>
-                  </button>
-
-                  {open && (
-                    <div className="absolute z-20 w-full bg-zinc-900 border border-zinc-700 rounded-lg overflow-hidden">
-                      {services.map((service) => (
-                        <button
-                          key={service.id}
-                          type="button"
-                          onClick={() => {
-                            updateDraft("service", service);
-                            setOpen(false);
-                          }}
-                          className={`w-full px-4 py-3 flex justify-between items-center text-white
-                            hover:bg-primary hover:text-black transition rounded-lg`}
-                        >
-                          <span>{service.name}</span>
-                          <span className="font-semibold">
-                            ${service.price}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Botón Principal con Efecto Glow */}
-            <div className="pt-4">
+          {/* Lista de servicios con scroll */}
+          <div className="relative">
+            <div className="relative">
               <button
-                type="submit"
-                disabled={!isValid}
-                className="
+                type="button"
+                id="service"
+                onClick={() => setOpen(!open)}
+                className={`${inputClasses} w-full text-left flex justify-between items-center cursor-pointer rounded`}
+              >
+                <span
+                  className={draft.service ? "text-white" : "text-zinc-400"}
+                >
+                  {draft.service
+                    ? draft.service.name
+                    : "Selecciona un servicio"}
+                </span>
+                <span className="text-zinc-400">▾</span>
+              </button>
+
+              {/* Despliegue al hacer click */}
+              {open && (
+                <div className="absolute z-50 w-full bg-zinc-900 border border-zinc-700 rounded-md overflow-hidden">
+                  {/* Contenedor con scroll interno */}
+                  <div className="max-h-40 overflow-y-auto custom-scrollbar">
+                    {services.map((service) => (
+                      <button
+                        key={service.id}
+                        type="button"
+                        onClick={() => {
+                          updateDraft("service", service);
+                          setOpen(false);
+                        }}
+                        className={`w-full px-4 py-3 flex justify-between items-center rounded-md text-white
+                            hover:bg-primary hover:text-black transition cursor-pointer`}
+                      >
+                        <span>{service.name}</span>
+                        <span className="font-semibold">${service.price}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Botón Principal con Efecto Glow */}
+        <div className="pt-4">
+          <button
+            type="submit"
+            disabled={!isValid}
+            className="
                   w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
                   transition-all duration-300 transform active:scale-[0.98]
                   hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
                   disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
                 "
-              >
-                Consultar disponibilidad
-              </button>
-            </div>
-          </form>
-        {/* </motion.div>
-      </AnimatePresence> */}
+          >
+            Consultar disponibilidad
+          </button>
+        </div>
+      </form>
     </section>
   );
 }

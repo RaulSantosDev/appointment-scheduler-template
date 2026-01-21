@@ -75,3 +75,12 @@
 
   animation: metallic-sweep 10s linear infinite;
 }
+
+/* Opcional: Para que el scroll se vea más delgado y elegante */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; /* zinc-700 */
+  border-radius: 10px;
+}

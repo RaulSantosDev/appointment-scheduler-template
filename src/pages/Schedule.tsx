@@ -29,9 +29,10 @@ export default function Schedule() {
 
   return (
     <>
-      <Header />      
+      <Header />   
+         
+      <main className="relative min-h-[calc(100vh-100px)] flex items-center p-4">
 
-      <main className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden bg-neutral-950 p-4 min-w-screen">
 
            {/* FONDO */}
           <div className="absolute inset-0">
@@ -49,7 +50,7 @@ export default function Schedule() {
               <StepOne
                 services={services}
                 draft={draft}
-                onChange={setDraft}
+                setDraft={setDraft}
                 onNext={() => setStep(2)}
               />
             )}
@@ -57,7 +58,7 @@ export default function Schedule() {
             {step === 2 && (
               <StepTwo
                 draft={draft}
-                onChange={setDraft}
+                setDraft={setDraft}
                 onBack={() => setStep(1)}
                 onNext={() => setStep(3)}
               />

@@ -5,6 +5,7 @@ export default function Hero() {
   return (
     <>
       <section className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden ">
+        
         {/* FONDO */}
         <div className="absolute inset-0  ">
           <img

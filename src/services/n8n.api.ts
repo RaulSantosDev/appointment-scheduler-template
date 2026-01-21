@@ -11,7 +11,6 @@ interface AppointmentPayload {
 
 // Obtiene los horarios disponibles
 export async function getAvailability(
-  serviceId: string,
   date: string
 ): Promise<string[]> {
   const response = await fetch(
@@ -21,7 +20,7 @@ export async function getAvailability(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ serviceId, date }),
+      body: JSON.stringify({ date }),
     }
   );
 
