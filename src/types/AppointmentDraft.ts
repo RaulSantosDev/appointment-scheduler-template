@@ -4,8 +4,8 @@ export interface AppointmentDraft {
   name: string;
   phone: string;
   email: string;
-  service: Service | null;
+  service: Service;
   date: string;
-  time: string | null;
+  time: string;
   price: number;
 }

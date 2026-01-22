@@ -8,32 +8,32 @@ export default function Header() {
         
         {/* Logo / Marca */}
         <span className="text-4xl tracking-widest font-display text-text text-center">
-          <span className="text-primary font-logotipo md:text-4xl md:mb-6 text-metallic border border-primary p-2 rounded-sm">
+          <span className="text-primary font-logotipo md:text-4xl md:mb-6 text-metallic border border-primary p-2 rounded-sm uppercase">
             < Link to="/">
-              LA CHOZA
+              Barbería
             </Link>
           </span> <span className="text-lg md:text-3xl"> BARBERSHOP
           </span>
         </span>
 
         {/* Navegación */}
-        <nav className="flex items-center gap-8 text-lg t">
+        <nav className="flex items-center gap-6 text-lg t">
           <a
             href="#servicios"
-            className="text-primary hover:text-primary  
+            className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm
             "
           >
             Servicios
           </a>
           <a
             href="#precios"
-            className="text-primary hover:text-primary transition"
+            className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm"
           >
             Precios
           </a>
           <a
             href="#contacto"
-            className="text-primary hover:text-primary transition"
+            className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm"
           >
             Contacto
           </a>

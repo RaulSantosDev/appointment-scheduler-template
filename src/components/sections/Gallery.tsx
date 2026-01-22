@@ -17,7 +17,7 @@ export default function Gallery(): React.JSX.Element {
     // Aumenté la altura a h-[400px] o h-[500px] para que se luzca el carrusel
     <div className="relative w-full py-1">
       <div className="max-w-7xl mx-auto px-4 mb-4 md:mb-8">
-        <h2 className="text-3xl text-primary font-bold mb-2">
+        <h2 className="text-3xl text-primary font-bold mb-2 font-serif">
           Nuestra Galería
         </h2>
         <p className="text-muted">Desliza para ver más</p>

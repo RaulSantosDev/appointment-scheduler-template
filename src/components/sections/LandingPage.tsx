@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Clock, Star, User } from "lucide-react";
 import Gallery from "./Gallery";
 import { WhatsAppLink } from "../../lib/WhatsApp";
+import Below from "./SectionServices";
+import SectionServices from "./SectionServices";
 export function LandingPage() {
   const features = [
     {
@@ -23,17 +25,11 @@ export function LandingPage() {
   ];
   return (
     <div className="min-h-screen bg-background overflow-hidden">
-      {/* Hero Section */}
-
-      <div className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent  border-none" />
-
       <div className="bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100">
         {/* Galery Section */}
-        <section className="py-10">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-10 my-10">
+          <div className="container mx-auto px-4">
             <div className=" border border-primary rounded-xl p-4 sm:p-2 lg:p-6 text-center overflow-hidden">
-              {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1)_0%,transparent_70%)]" /> */}
-
               <div className="">
                 <Gallery />
               </div>
@@ -41,8 +37,17 @@ export function LandingPage() {
           </div>
         </section>
 
+        <div
+          className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent  border-none"
+          id="servicios"
+        />
+
+        < SectionServices />
+
+        <div className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent  border-none" />
+
         {/* Features Section */}
-        <section className="pb-20 relative">
+        <section className=" relative my-10">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{
@@ -61,7 +66,7 @@ export function LandingPage() {
               }}
               className="text-center mb-10"
             >
-              <h2 className="text-3xl sm:text-4xl font-display text-foreground mb-4">
+              <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">
                 Todo lo que necesitas
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -100,16 +105,20 @@ export function LandingPage() {
                     </h3>
                     <p className="text-primary text-4xl items-center">
                       {feature.description}
-                      { feature.Cel && <button className="
+                      {feature.Cel && (
+                        <button
+                          className="
                         w-full p-2 mt-2 bg-yellow-400/80 text-black rounded-xl font-bold text-lg
                         transition-all duration-300 transform active:scale-[0.98]
                         hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
                         disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
-                      ">
-                        <p>
-                          <WhatsAppLink/>
-                        </p>
-                      </button>}
+                      "
+                        >
+                          <p>
+                            <WhatsAppLink />
+                          </p>
+                        </button>
+                      )}
                     </p>
                   </div>
                 </motion.div>

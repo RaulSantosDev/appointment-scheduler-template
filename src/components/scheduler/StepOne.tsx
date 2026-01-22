@@ -141,13 +141,14 @@ export default function StepOne({
               <button
                 type="button"
                 id="service"
+                
                 onClick={() => setOpen(!open)}
                 className={`${inputClasses} w-full text-left flex justify-between items-center cursor-pointer rounded`}
               >
                 <span
-                  className={draft.service ? "text-white" : "text-zinc-400"}
+                  className={draft.service.name ? "text-text" : "text-zinc-400"}
                 >
-                  {draft.service
+                  {draft.service.name
                     ? draft.service.name
                     : "Selecciona un servicio"}
                 </span>

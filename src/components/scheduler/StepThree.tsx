@@ -27,12 +27,8 @@ export default function StepThree({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Confirma la reserva de la cita enviando los datos del 'draft' al servidor.
   async function confirmAppointment() {
-    if (!draft.service || !draft.time) {
-      setError("Información incompleta para confirmar la cita");
-      return;
-    }
-
     setLoading(true);
     setError(null);
 
@@ -62,6 +58,7 @@ export default function StepThree({
 
   return (
     <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500">
+      
       <div className="text-center mb-4">
         <h2 className="text-4xl font-serif mb-1 tracking-tight">
           Confirma tus datos

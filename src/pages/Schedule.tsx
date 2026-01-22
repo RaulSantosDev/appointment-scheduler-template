@@ -12,11 +12,18 @@ import Footer from "../components/layout/Footer";
 
 const services = businessConfig.services;
 
-const initialState = {
+const initialService = { 
+  id: "",
+  name: "",
+  duration: 0,
+  price: 0,
+}
+
+const initialState : AppointmentDraft = {
   name: "",
   phone: "",
   email: "",
-  service: null,
+  service: initialService,
   date: "",
   time: "",
   price: 0,

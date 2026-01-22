@@ -13,6 +13,14 @@ export default function Hero() {
             alt="Fondo Barbería"
             className="w-full h-full object-cover grayscale "
           />
+          {/* <video
+            src="/public/114177956-hd_1280_720_30fps.mp4"
+            autoPlay
+            muted
+            loop
+            className="absolute inset-0 h-full w-full object-cover grayscale"
+          /> */}
+          
           <div className="absolute inset-0 bg-radial from-[#000000a5] from-1% to-[#010100] opacity-100 " />
         </div>
 
@@ -36,7 +44,7 @@ export default function Hero() {
             >
             {/* TEXTO */}
             <div className="text-center md:text-left md:translate-x-14 mb-4 ">
-              <div className="flex items-center justify-center gap-3 mt-6 md:justify-start ">
+              <div className="flex items-center justify-center gap-3 md:mt-6 md:justify-start ">
                 <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
                   Muna, Yucatán, México.
                 </p>
@@ -57,9 +65,9 @@ export default function Hero() {
                 <Link
                   to="/schedule"
                   className="
-                w-auto p-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
+                w-auto p-4 bg-primary text-black rounded-xl font-bold text-lg
                 transition-all duration-300 transform active:scale-[0.98]
-                hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+                hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
                 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
               "
                 >
@@ -114,7 +122,7 @@ export default function Hero() {
               className=""
             >
               <img
-                src="../../../public/460638877_486605284244244_179908150592s36s02823_n.png"
+                src="../../../public/aa569c4c6417b733c1cbaf382d792c2054.png"
                 alt="La Choza Barbershop"
                 className="relative w-90 md:w-120 md:h-auto rounded-full object-cover cursor-pointer transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
               />
@@ -127,6 +135,7 @@ export default function Hero() {
         </div>
       </section>
 
+      <div className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent  border-none" />
       
     </>
   );
