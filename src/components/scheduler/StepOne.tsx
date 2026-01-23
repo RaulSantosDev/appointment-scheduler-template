@@ -42,7 +42,7 @@ export default function StepOne({
     Boolean(draft.name) &&
     Boolean(draft.phone) &&
     Boolean(draft.email) &&
-    Boolean(draft.service);
+    Boolean(draft.service.name);
 
   // Clases reutilizables para los inputs
   const inputClasses = `

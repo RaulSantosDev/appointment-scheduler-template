@@ -1,22 +1,16 @@
 import React from "react";
-
 import { images } from "../../utilities/data";
-
-// 1. Importaciones de Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-// Quitamos EffectFade, dejamos solo los necesarios
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-// 2. Estilos: Ya no necesitamos 'effect-fade'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export default function Gallery(): React.JSX.Element {
   return (
-    // Aumenté la altura a h-[400px] o h-[500px] para que se luzca el carrusel
-    <div className="relative w-full py-1">
-      <div className="max-w-7xl mx-auto px-4 mb-4 md:mb-8">
+    <div className="relative w-full border border-primary rounded-xl p-4 sm:p-2 md:p-6 text-center ">
+      <div className="max-w-7xl mx-auto px-4 mb-4 ">
         <h2 className="text-3xl text-primary font-bold mb-2 font-serif">
           Nuestra Galería
         </h2>
@@ -24,11 +18,10 @@ export default function Gallery(): React.JSX.Element {
       </div>
 
       <Swiper
-        // CONFIGURACIÓN DE CARRUSEL
         spaceBetween={20} // Espacio en pixeles entre fotos
         loop={true} // Para que sea infinito
         centeredSlides={false} // false = alineado a la izquierda, true = la activa al centro
-        navigation={true}
+        navigation={false} // Activa la navegación en ambos lados
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
@@ -56,22 +49,19 @@ export default function Gallery(): React.JSX.Element {
           },
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        className="w-full h-100 px-4" // Altura específica del slider
+        className="w-full h-100 px-4 rounded-2xl " // Altura específica del slider
       >
         {images.map((img, index) => (
-          <SwiperSlide key={index} className="">
+          <SwiperSlide key={index}>
             {" "}
             {/* Padding bottom para los puntitos */}
-            <div className="w-full h-full overflow-hidden rounded-2xl border border-white/10  group">
+            <div className="w-full h-full overflow-hidden rounded-2xl border border-white/10 ">
               <img
                 src={img}
                 alt={`Slide ${index}`}
                 // Hover effect: Zoom suave al pasar el mouse
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-120"
               />
-
-              {/* Opcional: Overlay interno en cada tarjeta si quieres texto dentro */}
-              {/* <div className="absolute inset-0  group-hover:bg-transparent transition-all duration-300" /> */}
             </div>
           </SwiperSlide>
         ))}

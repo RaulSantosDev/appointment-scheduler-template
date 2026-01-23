@@ -2,19 +2,20 @@ import { Scissors } from "lucide-react";
 import { motion } from "framer-motion";
 
 type ServicesProps = {
-  name: string;
-  price: number;
+  service: {
+    id: string;
+    name: string;
+    duration: number;
+    price: number;
+    img: string;
+    description: string;
+  }
   index: number;
-  img: string;
-  description: string;
 };
 
 export default function Services({
-  name,
-  price,
+  service,
   index,
-  img,
-  description,
 }: ServicesProps) {
   return (
     <motion.div
@@ -34,20 +35,25 @@ export default function Services({
         once: false,
       }}
     >
-      <div className="max-w-sm mx-auto rounded-lg shadow-lg overflow-hidden border border-primary/40 hover:border-primary   ">
+      <div className="mx-auto rounded-lg overflow-hidden border border-primary/40 hover:border-primary transition-all duration-300">
         {/* <!-- Card Image --> */}
-        <img className="w-full h-48 object-cover" src={img} alt="Sample" />
+        <img 
+          className="w-full h-48 object-cover" 
+          src={service.img} 
+          alt={service.name}
+        />
+
         {/* <!-- Card Content --> */}
         <div className="p-4 text-primary">
           <div className="flex justify-center gap-4">
             <span>
-              <Scissors />
+              <Scissors size={30}/>
             </span>
-            <h2 className="text-xl font-bold"> {name}</h2>
+            <h2 className="text-xl font-bold"> {service.name}</h2>
           </div>
-          <p className="mt-2 text-text">{description}</p>
-          <p className=" px-4 py-2 text-2xl font-black text-primary ">
-            ${price}
+          <p className="mt-2 text-text">{service.description}</p>
+          <p className="py-2 text-3xl font-black text-primary ">
+            ${service.price}
           </p>
         </div>
       </div>

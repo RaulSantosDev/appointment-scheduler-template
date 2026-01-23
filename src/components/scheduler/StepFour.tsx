@@ -1,8 +1,8 @@
 import type { AppointmentDraft } from "../../types/AppointmentDraft";
-import { CheckCircle2, Calendar, Clock, MapPin } from "lucide-react";
+import { CheckCircle2, Calendar, Clock, MapPin, Mail, AtSign} from "lucide-react";
 import { convertDateFormat, getDayWeek } from "../../utilities";
 import { Link } from "react-router-dom";
-import { WhatsAppLink } from "../../lib/WhatsApp";
+import { ButtonLink } from "../../lib/ButtonLink";
 
 interface StepFourProps {
   draft: AppointmentDraft;
@@ -60,6 +60,18 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
                 {convertDateFormat(draft.date)}
               </span>
             </div>
+            <div className="flex items-center gap-2 text-text">
+              <AtSign size={18} />
+              <span className="text-base font-medium italic text-primary">
+                {draft.email}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-text">
+              <img src="https://www.svgrepo.com/show/303150/whatsapp-symbol-logo.svg" alt="" className="h-5 w-5 "/>
+              <span className="text-base font-medium italic">
+                {draft.phone}
+              </span>
+            </div>
 
             {/* Hora */}
             <div className="flex items-center gap-2 text-primary">
@@ -94,14 +106,18 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
         </p>
 
         <div className="text-center">
-          <button className="w-full max-w-70 p-2 border-2 mb-1 border-primary text-primary rounded-xl font-bold uppercase tracking-widest text-xs transition-all hover:bg-primary hover:text-black active:scale-95 hover:cursor-pointer">
-            <WhatsAppLink />
-          </button>
+          <div className="mb-2 ">
+            <ButtonLink
+              label="Whatsapp"
+              link="https://wa.link/3skshn"
+              iconButton="https://www.svgrepo.com/show/521923/whatsapp.svg"
+            />
+          </div>
 
           <Link to="/">
             <button
               onClick={onReset}
-              className="w-full max-w-70 p-3 border-2 border-primary text-primary rounded-xl font-bold uppercase tracking-widest text-xs transition-all hover:bg-primary hover:text-black active:scale-95 hover:cursor-pointer"
+              className="w-full p-4 border-2 border-primary text-primary rounded-xl font-bold uppercase tracking-widest text-xs transition-all hover:bg-primary hover:text-black active:scale-95 hover:cursor-pointer"
             >
               Volver a página principal
             </button>

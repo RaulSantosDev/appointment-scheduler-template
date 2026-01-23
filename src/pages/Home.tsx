@@ -6,15 +6,15 @@ import { LandingPage } from "../components/sections/LandingPage";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen ">
         <Header />
 
         <Hero />
-
-        <LandingPage />        
-
-        <Footer />
       </div>
+
+      <LandingPage />
+
+      <Footer />
     </>
   );
 }

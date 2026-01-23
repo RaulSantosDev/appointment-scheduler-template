@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <>
-      <section className="relative min-h-[calc(100vh-100px)] flex items-center overflow-hidden ">
+      <section className="relative flex-1 flex items-center overflow-hidden ">
         
         {/* FONDO */}
-        <div className="absolute inset-0  ">
+        <div className="absolute inset-0 ">
           <img
             src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop"
             alt="Fondo Barbería"
@@ -20,10 +20,11 @@ export default function Hero() {
             loop
             className="absolute inset-0 h-full w-full object-cover grayscale"
           /> */}
-          
+
           <div className="absolute inset-0 bg-radial from-[#000000a5] from-1% to-[#010100] opacity-100 " />
         </div>
 
+        {/* Contenedor principal */}
         <div className="relative mx-auto px-6 grid grid-cols-1 items-center md:grid-cols-2 ">
           <motion.div
             initial={{
@@ -41,7 +42,7 @@ export default function Hero() {
               once: false,
             }}
             className="order-2 md:order-1"
-            >
+          >
             {/* TEXTO */}
             <div className="text-center md:text-left md:translate-x-14 mb-4 ">
               <div className="flex items-center justify-center gap-3 md:mt-6 md:justify-start ">
@@ -87,7 +88,7 @@ export default function Hero() {
                   hover:cursor-pointer
                 "
                 >
-                  Ver servicios
+                  <a href="#servicios">Ver servicios</a>
                 </button>
               </div>
 
@@ -98,45 +99,44 @@ export default function Hero() {
           </motion.div>
 
           {/* LOGO */}
-
-          <div className="relative flex justify-center order-1 md:order-2">
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.9,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="relative flex justify-center order-1 md:order-2 "
+          >
+            {/* Sombra detras de imagen */}
             <div className="absolute inset-0 flex justify-center items-center">
-              <div className="w-105 h-105 bg-primary/10 rounded-full blur-[120px]" />
+              <div className="w-120 h-120 bg-primary/15 rounded-full blur-[120px]" />
             </div>
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.1,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className=""
-            >
-              <img
-                src="../../../public/aa569c4c6417b733c1cbaf382d792c2054.png"
-                alt="La Choza Barbershop"
-                className="relative w-90 md:w-120 md:h-auto rounded-full object-cover cursor-pointer transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
-              />
-            </motion.div>
-          </div>
+            <img
+              src="../../../public/aa569c4c6417b733c1cbaf382d792c2054.png"
+              alt="La Choza Barbershop"
+              className="relative w-90 md:w-120 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
+            />
+          </motion.div>
 
-          {/* <div className="absolute bottom-6 right-5 w-auto h-auto bg-black border border-primary flex items-center justify-center rounded-md shadow-lg z-20">
-                <span className="text-primary font-serif text-xl italic p-4">By Marcos Tun</span>
-        </div> */}
+          <div className="order-3 text-center md:absolute bottom-1 right-1 w-auto h-auto p-1 rounded-md z-20">
+            <span className="text-primary font-serif text-xl italic p-4">
+              By Marcos Tun
+            </span>
+          </div>
         </div>
       </section>
 
-      <div className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent  border-none" />
-      
+      <div className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent border-none" />
     </>
   );
 }
