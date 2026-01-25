@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# Appointment Schedule
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción del proyecto
 
-Currently, two official plugins are available:
+**Appointment Schedule** es una aplicación web de agenda de citas diseñada para automatizar la gestión de reservas de servicios de forma clara y confiable. Permite a los clientes visualizar en tiempo real los horarios disponibles según el día y el servicio seleccionado, verificando la disponibilidad antes de confirmar una cita.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación se integra con **Google Calendar** para evitar conflictos de horarios y garantizar que cada reserva sea válida, actualizada y consistente con la agenda real del negocio.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Público objetivo
 
-## Expanding the ESLint configuration
+- **Cliente final**: usuarios que desean agendar una cita de forma rápida y sin fricción.
+- **Negocio**: comercios que operan bajo un esquema de citas.
+- **Administrador**: responsable de supervisar y gestionar las reservas.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Contexto de uso
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+El proyecto fue creado inicialmente para una **barbería**, pero su lógica de negocio es reutilizable para cualquier tipo de negocio que requiera una **gestión automática de citas**, como consultorios, salones de belleza o servicios profesionales.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Funcionalidades actuales
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Creación de citas en tiempo real  
+- Verificación de disponibilidad por día y servicio  
+- Integración con Google Calendar  
+- Validación básica de formularios  
+- Selección dinámica de servicios  
+- Diseño responsive (mobile-first)  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Arquitectura y decisiones técnicas
+
+El proyecto está construido priorizando **legibilidad, mantenibilidad y claridad arquitectónica**.
+
+- Frontend desarrollado con **React + TypeScript**
+- Manejo de estado local para formularios y flujo de UI
+- Separación clara de responsabilidades
+- Componentes reutilizables y código refactorizado
+- Uso de hooks nativos de React
+- Frontend desacoplado del backend
+
+La aplicación consume una API externa encargada de la lógica de negocio, manteniendo el frontend enfocado exclusivamente en la experiencia de usuario.
+
+---
+
+## Stack tecnológico
+
+### Frontend
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend / Automatización
+- **n8n** como orquestador de backend
+- Integración con:
+  - Google Calendar API (verificación y creación de eventos)
+  - Gmail API (envío de correos de confirmación)
+  - Google Docs como almacenamiento temporal de citas *
+
+El frontend consume una **API real** expuesta por workflows de n8n que retorna los horarios disponibles en tiempo real.  
+Actualmente **no se requieren variables de entorno** para ejecutar la aplicación.
+
+---
+
+## Instalación y ejecución local
+
+### Requisitos
+- Node.js
+- npm
+
+### Instalación
+```bash
+npm install
