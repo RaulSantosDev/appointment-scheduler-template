@@ -59,20 +59,18 @@ export default function FeatureSection() {
               <h3 className="text-xl font-display text-foreground mb-2">
                 {feature.title}
               </h3>
-              <p className="text-primary text-4xl items-center">
+              <div className="text-primary text-4xl items-center">
                 <div className="mb-2">
                   {feature.description}
 
                 </div>
-                {feature.link && (
-                  
-                    <ButtonLink 
+                <ButtonLink 
                       link={feature.link} 
                       label={feature.label} 
                       iconButton={feature.iconButton} 
-                    />
-                )}
-              </p>
+                />
+                
+              </div>
             </div>
           </motion.div>
         ))}

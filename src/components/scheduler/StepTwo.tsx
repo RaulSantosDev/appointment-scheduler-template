@@ -48,7 +48,7 @@ export default function StepTwo({
       })
       .catch(() => {
         setError(
-          "No se pudo obtener disponibilidad, intenta de nuevo. Si el problema persiste escribenos por Whatapp",
+          "No se pudo obtener disponibilidad, intenta de nuevo. Si el problema persiste escribenos un Whatsapp",
         );
       })
       .finally(() => {
@@ -170,6 +170,7 @@ export default function StepTwo({
             )}
           </>
         ) : (
+          !error &&
           draft.date &&
           showNoSlotsMessage && (
             <div className="text-15 tracking-[0.2em] text-zinc-500 font-bold uppercase text-center mb-4 animate-in fade-in slide-in-from-right-4 duration-500">

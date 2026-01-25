@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
 
 @font-face {
   font-family: "LaChozaFont";
@@ -51,19 +50,12 @@
   }
 }
 
-/* #b08d2f 10%,
-    #e6c65c 20%,
-    #fff3b0 35%,
-    #e6c65c 50%,
-    #b08d2f 65%,
-    #8a6f1f 100% */
-
 .text-metallic {
   background-image: linear-gradient(
-    120deg,
+    135deg,
     #d7b454 10%,
     #e6c65c 20%,
-    #f7f0c9 35%,
+    #f3eab8 35%,
     #e6c65c 50%,
     #b08d2f 65%,
     #d6b249 100%

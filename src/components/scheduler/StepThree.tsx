@@ -57,7 +57,7 @@ export default function StepThree({
   }
 
   return (
-    <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500">
+    <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500 px-4">
       
       <div className="text-center mb-4">
         <h2 className="text-4xl font-serif mb-1 tracking-tight">
@@ -78,7 +78,7 @@ export default function StepThree({
       </div>
 
       {/* Tarjeta de Resumen (Card) */}
-      <div className="bg-zinc-900/40 border border-zinc-800 rounded-4xl p-6 space-y-0 divide-y divide-zinc-800/50 shadow-2xl ">
+      <div className="bg-zinc-900/40 border border-zinc-800 rounded-4xl p-4 space-y-0 divide-y divide-zinc-800/50 shadow-2xl">
         <SummaryRow
           icon={<User size={20} />}
           label="Cliente"

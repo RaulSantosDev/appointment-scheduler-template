@@ -56,7 +56,7 @@ export default function StepOne({
 
   return (
     // Contenedor principal
-    <section className="max-w-md mx-auto text-text animate-in fade-in slide-in-from-right-4 duration-500">
+    <section className="max-w-md mx-auto text-text animate-in fade-in slide-in-from-right-4 duration-500 py-2">
       <div className="text-center mb-4">
         <h1 className="text-4xl font-serif mb-1 tracking-wide">
           Agrega tus Datos

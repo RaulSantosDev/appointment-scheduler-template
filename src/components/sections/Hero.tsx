@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <>
-      <section className="relative flex-1 flex items-center overflow-hidden ">
+      <section className="relative min-h-[calc(100vh-100px)] flex-1 flex items-center overflow-hidden ">
         
         {/* FONDO */}
         <div className="absolute inset-0 ">

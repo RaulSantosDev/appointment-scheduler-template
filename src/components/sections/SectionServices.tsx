@@ -14,6 +14,7 @@ export default function SectionServices() {
             <Services
               service={service}
               index={index}
+              key={index}
             />
           ))}
         </div>

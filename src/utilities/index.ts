@@ -1,8 +1,10 @@
+// Convertimos la fecha al formato deseado.
 export function convertDateFormat(string: string) {
   let info = string.split("-").reverse().join("/");
   return info;
 }
 
+// Obtenemos el día de la semana.
 export const getDayWeek = (fechaStr: string): string => {
   // 1. Normalizamos el string para evitar problemas de zona horaria
   // Agregamos 'T00:00:00' para que lo tome como hora local y no UTC
@@ -21,6 +23,3 @@ export const getDayWeek = (fechaStr: string): string => {
   // 3. Opcional: Capitalizar la primera letra (martes -> Martes)
   return nombreDia.charAt(0).toUpperCase() + nombreDia.slice(1);
 };
-
-// --- EJEMPLOS DE USO ---
-console.log(getDayWeek("2026-01-06")); // "Martes"

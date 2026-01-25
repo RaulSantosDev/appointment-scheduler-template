@@ -1,4 +1,4 @@
-interface AppointmentPayload {
+type AppointmentPayload = {
   serviceId: string;
   date: string;
   time: string;
@@ -10,9 +10,7 @@ interface AppointmentPayload {
 }
 
 // Obtiene los horarios disponibles
-export async function getAvailability(
-  date: string
-): Promise<string[]> {
+export async function getAvailability(date: string): Promise<string[]> {
   const response = await fetch(
     "https://n8n.srv1099745.hstgr.cloud/webhook/f6ddfa6f-8256-41ba-b46e-2fe314e3ce6a",
     {
@@ -21,11 +19,11 @@ export async function getAvailability(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ date }),
-    }
+    },
   );
 
   if (!response.ok) {
-    throw new Error("Error obteniendo disponibilidad");
+    throw new Error("Error obteniendo disponibilidad. Error " + response.status);
   }
 
   const data = await response.json();
@@ -42,7 +40,7 @@ export async function createAppointment(payload: AppointmentPayload) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-    }
+    },
   );
 
   if (!response.ok) {

@@ -1,5 +1,11 @@
 import type { AppointmentDraft } from "../../types/AppointmentDraft";
-import { CheckCircle2, Calendar, Clock, MapPin, Mail, AtSign} from "lucide-react";
+import {
+  CheckCircle2,
+  Calendar,
+  Clock,
+  MapPin,
+  AtSign,
+} from "lucide-react";
 import { convertDateFormat, getDayWeek } from "../../utilities";
 import { Link } from "react-router-dom";
 import { ButtonLink } from "../../lib/ButtonLink";
@@ -13,8 +19,7 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
   return (
     <>
       <section
-        className="max-w-md mx-auto text-white 
-           animate-in fade-in duration-500 flex flex-col items-center md:px-6"
+        className="max-w-md mx-auto text-white animate-in fade-in duration-500 flex flex-col items-center px-2"
       >
         <div className="text-center mb-5">
           <h2 className="text-4xl font-serif  tracking-tight">
@@ -60,6 +65,13 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
                 {convertDateFormat(draft.date)}
               </span>
             </div>
+
+            {/* Hora */}
+            <div className="flex items-center gap-2 text-primary">
+              <Clock size={18} />
+              <span className="text-4xl font-serif italic">{draft.time}</span>
+            </div>
+
             <div className="flex items-center gap-2 text-text">
               <AtSign size={18} />
               <span className="text-base font-medium italic text-primary">
@@ -67,16 +79,14 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
               </span>
             </div>
             <div className="flex items-center gap-2 text-text">
-              <img src="https://www.svgrepo.com/show/303150/whatsapp-symbol-logo.svg" alt="" className="h-5 w-5 "/>
+              <img
+                src="https://www.svgrepo.com/show/303150/whatsapp-symbol-logo.svg"
+                alt=""
+                className="h-5 w-5 "
+              />
               <span className="text-base font-medium italic">
                 {draft.phone}
               </span>
-            </div>
-
-            {/* Hora */}
-            <div className="flex items-center gap-2 text-primary">
-              <Clock size={18} />
-              <span className="text-4xl font-serif italic">{draft.time}</span>
             </div>
 
             {/* Línea divisoria */}
