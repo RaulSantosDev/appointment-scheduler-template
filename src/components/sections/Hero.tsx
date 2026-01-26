@@ -124,7 +124,7 @@ export default function Hero() {
             <img
               src="../../../public/aa569c4c6417b733c1cbaf382d792c2054.png"
               alt="La Choza Barbershop"
-              className="relative w-90 md:w-120 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
+              className="relative w-90 md:w-135 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
             />
           </motion.div>
 

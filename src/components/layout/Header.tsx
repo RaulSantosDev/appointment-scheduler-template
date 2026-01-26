@@ -8,7 +8,7 @@ export default function Header() {
         
         {/* Logo / Marca */}
         <span className="text-4xl tracking-widest font-display text-text text-center">
-          <span className="text-primary font-logotipo md:text-4xl md:mb-6 text-metallic border border-primary p-2 rounded-sm uppercase">
+          <span className="text-primary font-logotipo md:text-5xl md:mb-6 text-metallic border border-primary p-2 rounded-sm uppercase">
             < Link to="/">
               La Choza
             </Link>

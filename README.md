@@ -1,76 +1,134 @@
-# Appointment Schedule
+# Appointment Schedule System
 
-## Descripción del proyecto
+![Status](https://img.shields.io/badge/Status-Production-success) ![Stack](https://img.shields.io/badge/Tech-React%20|%20TypeScript%20|%20n8n-blue)
 
-**Appointment Schedule** es una aplicación web de agenda de citas diseñada para automatizar la gestión de reservas de servicios de forma clara y confiable. Permite a los clientes visualizar en tiempo real los horarios disponibles según el día y el servicio seleccionado, verificando la disponibilidad antes de confirmar una cita.
+## 🚀 Caso de Éxito en Producción: La Choza Barber
 
-La aplicación se integra con **Google Calendar** para evitar conflictos de horarios y garantizar que cada reserva sea válida, actualizada y consistente con la agenda real del negocio.
+Este sistema no es solo un concepto; es una solución **desplegada y operativa**. Actualmente, gestiona la totalidad de la agenda de **La Choza Barber**, centralizando reservas, eliminando conflictos de horarios y automatizando la comunicación con los clientes.
 
----
-
-## Público objetivo
-
-- **Cliente final**: usuarios que desean agendar una cita de forma rápida y sin fricción.
-- **Negocio**: comercios que operan bajo un esquema de citas.
-- **Administrador**: responsable de supervisar y gestionar las reservas.
-
-### Contexto de uso
-
-El proyecto fue creado inicialmente para una **barbería**, pero su lógica de negocio es reutilizable para cualquier tipo de negocio que requiera una **gestión automática de citas**, como consultorios, salones de belleza o servicios profesionales.
+> **Impacto real:** Desde su implementación, se ha reducido al 0% la doble reserva de citas, se ha reducido al 0% la omisión de reservas de citas y se ha optimizado el tiempo operativo del negocio al eliminar la gestión manual por WhatsApp.
 
 ---
 
-## Funcionalidades actuales
+## 📖 Descripción Técnica
 
-- Creación de citas en tiempo real  
-- Verificación de disponibilidad por día y servicio  
-- Integración con Google Calendar  
-- Validación básica de formularios  
-- Selección dinámica de servicios  
-- Diseño responsive (mobile-first)  
+**Appointment Schedule** es una solución Fullstack desacoplada diseñada para la orquestación de reservas en tiempo real. Resuelve la complejidad de la gestión de disponibilidad mediante una arquitectura basada en eventos y microservicios low-code.
+
+El sistema actúa como una capa de abstracción inteligente entre la interfaz de usuario y los servicios de Google (Calendar, Gmail, Sheets), garantizando la integridad de los datos y una experiencia de usuario (UX) fluida.
 
 ---
 
-## Arquitectura y decisiones técnicas
+## 🛠 Stack Tecnológico
 
-El proyecto está construido priorizando **legibilidad, mantenibilidad y claridad arquitectónica**.
+El proyecto utiliza un stack moderno y "bleeding-edge", aprovechando las últimas versiones estables de sus tecnologías principales.
 
-- Frontend desarrollado con **React + TypeScript**
-- Manejo de estado local para formularios y flujo de UI
-- Separación clara de responsabilidades
-- Componentes reutilizables y código refactorizado
-- Uso de hooks nativos de React
-- Frontend desacoplado del backend
+### Frontend (Cliente)
 
-La aplicación consume una API externa encargada de la lógica de negocio, manteniendo el frontend enfocado exclusivamente en la experiencia de usuario.
+- **Core:** React 19 + TypeScript.
+- **Routing:** React Router DOM v7 para gestión de rutas y navegación SPA.
+- **UI & Estilos:**
+  - **Tailwind CSS v4:** Motor de estilos de última generación.
+  - **Lucide React:** Iconografía consistente y ligera.
+- **UX & Interactividad:**
+  - **Framer Motion:** Animaciones fluidas y transiciones de estado complejas.
+  - **Swiper:** Implementación de carruseles interactivos y touch-friendly.
 
----
+### Backend & Infraestructura
 
-## Stack tecnológico
+El backend opera bajo una arquitectura **Serverless / Low-code** optimizada para el mantenimiento y la escalabilidad.
 
-### Frontend
-- React
-- TypeScript
-- Tailwind CSS
-
-### Backend / Automatización
-- **n8n** como orquestador de backend
-- Integración con:
-  - Google Calendar API (verificación y creación de eventos)
-  - Gmail API (envío de correos de confirmación)
-  - Google Docs como almacenamiento temporal de citas *
-
-El frontend consume una **API real** expuesta por workflows de n8n que retorna los horarios disponibles en tiempo real.  
-Actualmente **no se requieren variables de entorno** para ejecutar la aplicación.
+* **Orquestación:** n8n (Workflow Automation) actuando como el cerebro lógico del sistema.
+* **Infraestructura:** Instancia de n8n **auto-alojada (Self-Hosted)** desplegada en un servidor VPS de **Hostinger**, garantizando control total sobre los datos y la ejecución.
+* **Google Cloud Platform (GCP):**
+    * Gestión de proyecto y habilitación de APIs en la consola de Google.
+    * Configuración de autenticación y credenciales para acceso seguro a recursos del usuario.
+* **Integraciones:**
+    * **Google Calendar API:** Verificación de disponibilidad y bloqueo de slots.
+    * **Gmail API:** Envío automatizado de confirmaciones HTML.
+    * **Google Sheets:** Persistencia de datos y logs de transacciones.
 
 ---
 
-## Instalación y ejecución local
+## 🧩 Decisiones de Arquitectura y Patrones
 
-### Requisitos
-- Node.js
-- npm
+### 1. Validación de Disponibilidad en Tiempo Real (Race Condition Handling)
 
-### Instalación
-```bash
-npm install
+Para evitar conflictos de concurrencia (dos usuarios intentando reservar el mismo slot simultáneamente), el sistema implementa una **doble verificación**:
+
+1.  **Lectura:** El frontend solicita los slots disponibles calculados dinámicamente por n8n basándose en los eventos existentes en Calendar.
+2.  **Escritura Atómica:** Al confirmar, el backend verifica nuevamente la disponibilidad milisegundos antes de la inserción. Si el slot fue ocupado durante el proceso de llenado del formulario, la transacción se rechaza y se notifica al usuario.
+
+### 2. Principio de Responsabilidad Única (SRP)
+
+El código frontend está modularizado. La lógica de presentación está separada de la lógica de negocio:
+
+- `services/`: Encargados puramente de `fetch` y manejo de respuestas HTTP.
+- `components/`: UI pura y reutilizable.
+
+### 3. Manejo de Errores Robusto
+
+Se implementó un sistema de manejo de errores en capas:
+
+- **Capa de Red:** Catch de fallos de conectividad o timeouts.
+- **Capa de Aplicación:** Validación de respuestas HTTP (status codes 4xx/5xx).
+- **Feedback al Usuario:** Mensajes contextuales en la UI (Toasts/Alertas) para guiar al usuario en caso de fallo, evitando pantallas blancas o estados indefinidos.
+
+---
+
+## 🔄 Flujo de Datos (Diagrama Lógico)
+
+1.  **Cliente** inicia solicitud `GET /availability` con una fecha específica.
+2.  **n8n Webhook** recibe la petición, consulta **Google Calendar** y filtra horarios ocupados vs. configuración del negocio.
+3.  **Frontend** renderiza los slots.
+4.  **Cliente** envía `POST /book` con datos del usuario.
+5.  **n8n** valida integridad, inserta evento en **Calendar**, registra en **Sheets** y dispara email vía **Gmail**.
+6.  **Cliente y Administrador de Negocio** ambos reciben confirmación visual y correo electrónico con los detalles previamente que el usuario ha enviado.
+
+---
+
+## 💻 Instalación y Ejecución Local
+
+Este repositorio contiene el código fuente del Frontend.
+
+### Prerrequisitos
+
+- Node.js v18+
+- npm / yarn
+
+### Pasos
+
+1.  Clonar el repositorio:
+    ```bash
+    git clone git@github.com:RaulSantosDev/appointment-scheduler-template.git
+    ```
+2.  Instalar dependencias:
+    ```bash
+    cd appointment-schedule
+    npm install
+    ```
+3.  Ejecutar entorno de desarrollo:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🌟 Valor Profesional
+
+Este proyecto demuestra competencias en:
+
+- **Ingeniería de Software:** Integración de sistemas distribuidos y consumo de APIs de terceros.
+- **Automatización:** Uso avanzado de n8n para reducir costes de backend y tiempos de desarrollo.
+- **Calidad de Código:** Tipado estático con TypeScript para escalabilidad y mantenibilidad.
+- **Visión de Producto:** Creación de una solución que resuelve un problema de negocio real (La Choza Barber).
+
+---
+
+## 👨‍💻 Autor
+
+**Raul Santos**
+_Desarrollador Web & Especialista en Automatizaciónes N8N_
+
+Enfocado en crear soluciones tecnológicas eficientes que aporten valor inmediato. Apasionado por React, TypeScript y la arquitectura de microservicios con n8n.
+
+[LinkedIn](https://www.linkedin.com/in/raulsantosdev/)
