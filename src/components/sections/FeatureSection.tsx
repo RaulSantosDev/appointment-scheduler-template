@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ButtonLink } from "../../lib/ButtonLink";
 import { features } from "../../utilities/features";
+import { Link } from "react-router-dom";
 
 export default function FeatureSection() {
   return (
@@ -64,11 +65,15 @@ export default function FeatureSection() {
                   {feature.description}
 
                 </div>
-                <ButtonLink 
-                      link={feature.link} 
-                      label={feature.label} 
-                      iconButton={feature.iconButton} 
-                />
+                
+                < Link
+                  to={feature.link}
+                >
+                  <ButtonLink 
+                        label={feature.label} 
+                        iconButton={feature.iconButton} 
+                        />
+                </Link>
                 
               </div>
             </div>

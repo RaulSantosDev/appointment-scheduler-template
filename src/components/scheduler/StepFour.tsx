@@ -1,11 +1,5 @@
 import type { AppointmentDraft } from "../../types/AppointmentDraft";
-import {
-  CheckCircle2,
-  Calendar,
-  Clock,
-  MapPin,
-  AtSign,
-} from "lucide-react";
+import { CheckCircle2, Calendar, Clock, MapPin, AtSign } from "lucide-react";
 import { convertDateFormat, getDayWeek } from "../../utilities";
 import { Link } from "react-router-dom";
 import { ButtonLink } from "../../lib/ButtonLink";
@@ -18,9 +12,7 @@ interface StepFourProps {
 export default function StepFour({ draft, onReset }: StepFourProps) {
   return (
     <>
-      <section
-        className="max-w-md mx-auto text-white animate-in fade-in duration-500 flex flex-col items-center px-2"
-      >
+      <section className="max-w-md mx-auto text-white animate-in fade-in duration-500 flex flex-col items-center ">
         <div className="text-center mb-5">
           <h2 className="text-4xl font-serif  tracking-tight">
             ¡Cita confirmada!
@@ -117,11 +109,15 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
 
         <div className="text-center">
           <div className="mb-2 ">
-            <ButtonLink
-              label="Whatsapp"
-              link="https://wa.link/3skshn"
-              iconButton="https://www.svgrepo.com/show/521923/whatsapp.svg"
-            />
+            < Link 
+              to="https://wa.link/3skshn"
+            >
+            
+              <ButtonLink
+                label="Whatsapp"
+                iconButton="https://www.svgrepo.com/show/521923/whatsapp.svg"
+                />
+            </Link>
           </div>
 
           <Link to="/">

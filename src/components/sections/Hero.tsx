@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import logo from "../../assets/LaChozaLogo.png"
 
 export default function Hero() {
   return (
@@ -122,7 +123,7 @@ export default function Hero() {
             </div>
 
             <img
-              src="../../../public/aa569c4c6417b733c1cbaf382d792c2054.png"
+              src={logo}
               alt="La Choza Barbershop"
               className="relative w-90 md:w-135 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
             />

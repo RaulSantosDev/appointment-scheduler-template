@@ -1,10 +1,9 @@
 type ButtonLinkProps = {
   label: string;
-  link: string;
   iconButton: string;
 };
 
-export const ButtonLink = ({ label, link, iconButton }: ButtonLinkProps) => {
+export const ButtonLink = ({ label, iconButton }: ButtonLinkProps) => {
   return (
     <button
       className="
@@ -15,7 +14,6 @@ export const ButtonLink = ({ label, link, iconButton }: ButtonLinkProps) => {
       "
     >
       <a
-        href={link}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center font-medium text-bg-h"

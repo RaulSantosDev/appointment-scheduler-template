@@ -90,12 +90,13 @@ export default function StepTwo({
           <input
             type="date"
             value={draft.date}
+            placeholder="01/01/2025"
             name="date"
             onChange={handleChange}
             onClick={() => setShowNoSlotsMessage(false)}
             className="
-              w-full rounded-2xl border border-primary/20 bg-zinc-900/50 px-5 py-4 text-white 
-              appearance-none transition-all duration-300 hover:border-primary
+              w-full rounded-2xl border border-primary/20  p-4 text-text
+              appearance-auto transition-all duration-300 hover:border-primary
               focus:border-primary focus:outline-none focus:ring-2 focus:ring-yellow-500/20
               group-hover:border-zinc-600
             "

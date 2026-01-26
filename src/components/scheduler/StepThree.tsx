@@ -57,7 +57,7 @@ export default function StepThree({
   }
 
   return (
-    <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500 px-4">
+    <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500 ">
       
       <div className="text-center mb-4">
         <h2 className="text-4xl font-serif mb-1 tracking-tight">
@@ -118,8 +118,8 @@ export default function StepThree({
         />
       </div>
 
-      <p className="text-[10px] tracking-[0.2em] text-zinc-500 font-bold uppercase text-center m-2">
-        Revisa que tus datos sean correctos
+      <p className="text-[12px] tracking-[0.2em] text-zinc-500 font-bold uppercase text-center m-2">
+        Antes de dar click en confirmar cita revisa que tus datos sean correctos
       </p>
 
       {/* Mensaje de Error */}

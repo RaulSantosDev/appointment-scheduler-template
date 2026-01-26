@@ -51,14 +51,14 @@ export default function Gallery(): React.JSX.Element {
         modules={[Autoplay, Pagination, Navigation]}
         className="w-full h-100 px-4 rounded-2xl " // Altura específica del slider
       >
-        {images.map((img, index) => (
-          <SwiperSlide key={index}>
+        {images.map((image) => (
+          <SwiperSlide key={image}>
             {" "}
             {/* Padding bottom para los puntitos */}
             <div className="w-full h-full overflow-hidden rounded-2xl border border-white/10 ">
               <img
-                src={img}
-                alt={`Slide ${index}`}
+                src={`/images/${image}`}
+                alt={`Slide ${image}`}
                 // Hover effect: Zoom suave al pasar el mouse
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-120"
               />
