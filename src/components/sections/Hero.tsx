@@ -45,7 +45,7 @@ export default function Hero() {
             className="order-2 md:order-1"
           >
             {/* TEXTO */}
-            <div className="text-center md:text-left md:translate-x-14 mb-4 ">
+            <div className="text-center md:text-left mb-4 ">
               <div className="flex items-center justify-center gap-3 md:mt-6 md:justify-start ">
                 <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
                   Muna, Yucatán, México.
@@ -67,7 +67,7 @@ export default function Hero() {
                 <Link
                   to="/schedule"
                   className="
-                w-auto p-4 bg-primary text-black rounded-xl font-bold text-lg
+                md:px-10 p-4 bg-primary text-black rounded-xl font-bold text-lg
                 transition-all duration-300 transform active:scale-[0.98]
                 hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
                 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
@@ -131,7 +131,7 @@ export default function Hero() {
 
           <div className="order-3 text-center md:absolute bottom-1 right-1 w-auto h-auto p-1 rounded-md z-20">
             <span className="text-primary font-serif text-xl italic p-4">
-              By Marcos Tun
+              By Marco Tun
             </span>
           </div>
         </div>

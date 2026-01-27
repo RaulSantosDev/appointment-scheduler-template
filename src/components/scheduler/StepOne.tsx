@@ -171,8 +171,8 @@ export default function StepOne({
                         className={`w-full px-4 py-3 flex justify-between items-center rounded-md text-white
                             hover:bg-primary hover:text-black transition cursor-pointer`}
                       >
-                        <span>{service.name}</span>
-                        <span className="font-semibold">${service.price}</span>
+                        <span className="">{service.name}</span>
+                        <span className="font-semibold">${service.price > 0 ? service.price : "?"}</span>
                       </button>
                     ))}
                   </div>

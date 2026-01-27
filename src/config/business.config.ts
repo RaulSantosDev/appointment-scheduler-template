@@ -15,7 +15,7 @@ export const businessConfig = {
       id: "beard",
       name: "Arreglo de barba",
       duration: 60,
-      price: 100,
+      price: 60,
       img: "https://cdn.shopify.com/s/files/1/1345/5571/files/estilo-de-barba-corta-cuadrada.jpg?v=1635730551",
       description:
         "Perfilado, rebajado y cuidado detallado para una barba con presencia y prolijidad.",
@@ -24,19 +24,19 @@ export const businessConfig = {
       id: "combo",
       name: "Corte + Barba",
       duration: 60,
-      price: 120,
+      price: 150,
       img: "https://www.bellaroma.mx/wp-content/uploads/2021/07/barba-delineada.jpg",
       description:
         "El servicio integral definitivo para renovar tu imagen por completo en una sola sesión.",
     },
-    {
-      id: "cejas",
-      name: "Corte Cejas",
-      duration: 60,
-      price: 60,
-      img: "https://i.pinimg.com/736x/d6/c9/d3/d6c9d3e568d82e944691fd70dcd80a65.jpg",
-      description:
-        "Limpieza y definición precisa para potenciar tus facciones.",
-    },
+    // {
+    //   id: "cejas",
+    //   name: "Corte Cejas",
+    //   duration: 60,
+    //   price: 0,
+    //   img: "https://i.pinimg.com/736x/d6/c9/d3/d6c9d3e568d82e944691fd70dcd80a65.jpg",
+    //   description:
+    //     "Limpieza y definición precisa para potenciar tus facciones.",
+    // },
   ],
 };

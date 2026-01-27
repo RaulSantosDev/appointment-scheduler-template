@@ -38,7 +38,7 @@ export default function Services({
       <div className="mx-auto rounded-lg overflow-hidden border border-primary/40 hover:border-primary transition-all duration-300">
         {/* <!-- Card Image --> */}
         <img 
-          className="w-full h-48 object-cover" 
+          className="w-full h-70 object-cover" 
           src={service.img} 
           alt={service.name}
         />
@@ -51,9 +51,9 @@ export default function Services({
             </span>
             <h2 className="text-xl font-bold"> {service.name}</h2>
           </div>
-          <p className="mt-2 text-text">{service.description}</p>
+          <p className="mt-2 text-text ">{service.description}</p>
           <p className="py-2 text-3xl font-black text-primary ">
-            ${service.price}
+            ${service.price > 0 ? service.price : "?"}
           </p>
         </div>
       </div>

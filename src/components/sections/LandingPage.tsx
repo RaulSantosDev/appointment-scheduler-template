@@ -8,7 +8,7 @@ export function LandingPage() {
     <>
       <div className="bg-radial from-[#161200bd] from-1% to-[#07060033] opacity-100 ">
         {/* Galery Section */}
-        <section className="container mx-auto px-4 my-10 md:max-w-5/5 md:px-10">
+        <section className=" container mx-auto px-4 my-10 md:max-w-5/5 md:px-10">
           <Gallery />
         </section>
 

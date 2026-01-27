@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 
 export default function Gallery(): React.JSX.Element {
   return (
-    <div className="relative w-full border border-primary rounded-xl p-4 sm:p-2 md:p-6 text-center ">
+    <div className="  relative w-full border border-primary rounded-xl p-4 sm:p-2 md:p-6 text-center ">
       <div className="max-w-7xl mx-auto px-4 mb-4 ">
         <h2 className="text-3xl text-primary font-bold mb-2 font-serif">
           Nuestra Galería
@@ -49,7 +49,7 @@ export default function Gallery(): React.JSX.Element {
           },
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        className="w-full h-100 px-4 rounded-2xl " // Altura específica del slider
+        className="w-full h-100 md:h-120 px-4 rounded-2xl " // Altura específica del slider
       >
         {images.map((image) => (
           <SwiperSlide key={image}>
