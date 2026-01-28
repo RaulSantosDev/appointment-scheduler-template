@@ -45,14 +45,14 @@ export default function Hero() {
             className="order-2 md:order-1"
           >
             {/* TEXTO */}
-            <div className="text-center md:text-left mb-4 ">
+            <div className="text-center md:text-left mb-4 p-10">
               <div className="flex items-center justify-center gap-3 md:mt-6 md:justify-start ">
                 <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
                   Muna, Yucatán, México.
                 </p>
               </div>
 
-              <h1 className="text-6xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-white mt-4">
+              <h1 className="text-6xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight text-white mt-4">
                 Tu estilo, <br />
                 <span className="text-primary">tu mejor </span>{" "}
                 <p className="text-primary">versión.</p>
@@ -93,7 +93,7 @@ export default function Hero() {
                 </button>
               </div>
 
-              <p className="mt-3 text-xs text-gray-500">
+              <p className="mt-3 text-md text-gray-500">
                 Agenda tu cita en menos de 60 segundos
               </p>
             </div>
@@ -125,15 +125,11 @@ export default function Hero() {
             <img
               src={logo}
               alt="La Choza Barbershop"
-              className="relative w-90 md:w-135 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
+              className="relative w-90 md:w-160 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
             />
           </motion.div>
 
-          <div className="order-3 text-center md:absolute bottom-1 right-1 w-auto h-auto p-1 rounded-md z-20">
-            <span className="text-primary font-serif text-xl italic p-4">
-              By Marco Tun
-            </span>
-          </div>
+          
         </div>
       </section>
 

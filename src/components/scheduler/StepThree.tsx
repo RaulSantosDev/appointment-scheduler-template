@@ -124,10 +124,10 @@ export default function StepThree({
 
       {/* Mensaje de Error */}
       {error && (
-        <p className="text-red-400 text-center text-sm mt-4 bg-red-400/10 py-2 rounded-xl border border-red-400/20 white-space: whitespace-pre-line ">
+        <div className="text-red-400 text-center text-sm mt-4 bg-red-400/10 py-2 rounded-xl border border-red-400/20 white-space: whitespace-pre-line ">
           {error}
           <p className="font-bold">INTENTA CON OTRO HORARIO.</p>
-        </p>
+        </div>
       )}
 
       {/* Botones de Acción */}

@@ -10,18 +10,17 @@ export default function Header() {
         <span className="text-4xl tracking-widest font-display text-text text-center">
           <span className="text-primary font-logotipo md:text-5xl md:mb-6 text-metallic border border-primary p-2 rounded-sm uppercase">
             < Link to="/">
-              La Choza
+              BARBERÍA
             </Link>
           </span> <span className="text-lg md:text-3xl"> BARBERSHOP
           </span>
         </span>
 
         {/* Navegación */}
-        <nav className="flex items-center gap-6 text-lg t">
+        <nav className="flex items-center gap-6 text-lg">
           <a
             href="#servicios"
-            className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm
-            "
+            className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm"
           >
             Servicios
           </a>

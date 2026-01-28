@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ButtonLink } from "../../lib/ButtonLink";
 import { features } from "../../utilities/features";
-import { Link } from "react-router-dom";
 
 export default function FeatureSection() {
   return (
@@ -60,20 +59,17 @@ export default function FeatureSection() {
               <h3 className="text-xl font-display text-foreground mb-2">
                 {feature.title}
               </h3>
-              <div className="text-primary text-4xl items-center">
+              <div className="text-primary text-4xl items-center w-full">
                 <div className="mb-2">
                   {feature.description}
 
-                </div>
+                </div>               
                 
-                < Link
-                  to={feature.link}
-                >
                   <ButtonLink 
-                        label={feature.label} 
-                        iconButton={feature.iconButton} 
-                        />
-                </Link>
+                    link={feature.link}
+                    label={feature.label} 
+                    iconButton={feature.iconButton} 
+                  />                
                 
               </div>
             </div>

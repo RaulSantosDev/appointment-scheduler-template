@@ -109,15 +109,14 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
 
         <div className="text-center">
           <div className="mb-2 ">
-            < Link 
-              to="https://wa.link/3skshn"
-            >
+            
             
               <ButtonLink
                 label="Whatsapp"
                 iconButton="https://www.svgrepo.com/show/521923/whatsapp.svg"
+                link="https://wa.link/"
                 />
-            </Link>
+            
           </div>
 
           <Link to="/">
