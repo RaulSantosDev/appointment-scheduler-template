@@ -49,9 +49,9 @@ export default function Services({
             <span>
               <Scissors size={30}/>
             </span>
-            <h2 className="text-xl md:text-2xl font-bold"> {service.name}</h2>
+            <h2 className="text-xl md:text-2xl font-bold "> {service.name}</h2>
           </div>
-          <p className="mt-2 text-text text-lg">{service.description}</p>
+          <p className="mt-2 text-text text-lg h-20">{service.description}</p>
           <p className="py-2 text-3xl font-black text-primary ">
             ${service.price > 0 ? service.price : "?"}
           </p>

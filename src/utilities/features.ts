@@ -1,11 +1,15 @@
 import {  Clock, Facebook, User} from "lucide-react";
 
+const urlWhatsapp = import.meta.env.VITE_URL_WHATSAPP;
+const urlFacebook = import.meta.env.VITE_URL_FACEBOOK;
+
+
 export const features = [
     {
       icon: User,
       title: "Barbero Certificado",
       description: "Barber's Name",
-      link: "https://wa.link/",
+      link: urlWhatsapp ,
       label: "WhatsApp",
       iconButton: "https://www.svgrepo.com/show/521923/whatsapp.svg"
 
@@ -14,7 +18,7 @@ export const features = [
       icon: Facebook,
       title: "Redes sociales",
       description: "Facebook",
-      link: "https://www.facebook.com/profile.php?",
+      link: urlFacebook,
       label: "Facebook",
       iconButton: "https://www.svgrepo.com/show/509923/facebook.svg"
     },

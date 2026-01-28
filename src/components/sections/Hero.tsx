@@ -15,7 +15,7 @@ export default function Hero() {
             className="w-full h-full object-cover grayscale "
           />
           {/* <video
-            src="/public/114177956-hd_1280_720_30fps.mp4"
+            src="https://www.pexels.com/es-es/download/video/4178139/"
             autoPlay
             muted
             loop
@@ -67,30 +67,22 @@ export default function Hero() {
                 <Link
                   to="/schedule"
                   className="
-                md:px-10 p-4 bg-primary text-black rounded-sm font-bold text-lg
-                transition-all duration-300 transform active:scale-[0.98]
-                hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
-                disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
-              "
+                    px-10 py-4 bg-primary text-black rounded-sm font-bold text-lg
+                    transition-all duration-300 transform active:scale-[0.98]
+                    hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+                    disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
+                  "
                 >
                   Agendar cita
                 </Link>
 
-                <button
-                  className="
-                  bg-bg
-                  border border-primary/30
-                  text-white
-                  px-10 py-4
-                  font-medium uppercase text-sm
-                  rounded-sm
-                  hover:border-primary hover:text-primary
-                  transition
-                  hover:cursor-pointer
-                "
+                <a
+                  className="bg-bg border border-primary/30 text-white px-10 py-4 font-bold uppercase rounded-sm
+                  transition hover:cursor-pointer hover:border-primary "
+                  href="#servicios"
                 >
-                  <a href="#servicios">Ver servicios</a>
-                </button>
+                  Ver servicios
+                </a>
               </div>
 
               <p className="mt-3 text-md text-muted">
@@ -113,7 +105,7 @@ export default function Hero() {
               duration: 0.7,
             }}
             viewport={{
-              once: true,
+              once: false,
             }}
             className="relative flex justify-center order-1 md:order-2 "
           >
@@ -125,12 +117,18 @@ export default function Hero() {
             <img
               src={logo}
               alt="La Choza Barbershop"
-              className="relative w-90 md:w-160 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
+              className="relative w-90 md:w-140 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
             />
-          </motion.div>
 
+          </motion.div>
           
+          <div className="order-3 text-center md:absolute bottom-10 right-1 w-auto h-auto p-1 rounded-md z-20">
+            <span className="text-primary font-serif text-2xl italic p-4">
+              By Marco Tun
+            </span>
+          </div>
         </div>
+          
       </section>
 
       <div className="h-px w-full bg-linear-to-r from-transparent via-primary to-transparent border-none" />

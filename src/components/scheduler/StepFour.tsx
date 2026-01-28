@@ -9,6 +9,9 @@ interface StepFourProps {
   onReset: () => void;
 }
 
+const urlWhatsapp = import.meta.env.VITE_URL_WHATSAPP;
+
+
 export default function StepFour({ draft, onReset }: StepFourProps) {
   return (
     <>
@@ -41,11 +44,10 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
         {/* 4. Tarjeta de Resumen (Card) */}
         <div className="w-full bg-[#1a1a1a] border border-primary/20 rounded-2xl p-4 m-4 shadow-4xl">
           <div className="flex flex-col items-center space-y-2">
-            <h1 className="text-gray-400 ">
-              Hemos enviado los detalles a tu correo
+            <h1 className="text-gray-400 text-center">
+              Resumen de tu cita agendada.
             </h1>
 
-            
             <div className="text-primary">
               <span className="font-bold text-3xl italic">
                 {getDayWeek(draft.date)}
@@ -64,11 +66,25 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
               <span className="font-bold text-3xl italic">{draft.time}</span>
             </div>
 
+            {/* Servicio */}
+            <div className="text-center">
+              <h3 className="text-lg font-bold">{draft.service.name}</h3>{" "}
+              <span className="text-primary font-bold italic text-2xl">
+                ${draft.service.price}
+              </span>
+            </div>
+
+            {/* Línea divisoria */}
+            <div className="w-full h-px bg-text/10 my-2" />
+
+            <h1 className="text-gray-400 text-center">
+              Hemos enviado los datos al siguiente correo electrónico.
+            </h1>
+
+
             <div className="flex items-center gap-2 text-text">
               <AtSign size={18} />
-              <span className="text-lg font-bold">
-                {draft.email}
-              </span>
+              <span className="text-lg font-bold">{draft.email}</span>
             </div>
             <div className="flex items-center gap-2 text-primary">
               <img
@@ -76,22 +92,7 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
                 alt=""
                 className="h-5 w-5 "
               />
-              <span className="font-bold text-2xl italic">
-                {draft.phone}
-              </span>
-            </div>
-
-            {/* Línea divisoria */}
-            <div className="w-full h-px bg-text/10 my-2" />
-
-            {/* Servicio */}
-            <div className="text-center">
-              <h3 className="text-lg font-bold">
-                {draft.service.name}
-              </h3>{" "}
-              <span className="text-primary font-bold italic text-2xl">
-                ${draft.service.price}
-              </span>
+              <span className="font-bold text-2xl italic">{draft.phone}</span>
             </div>
 
             {/* Ubicación */}
@@ -109,14 +110,11 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
 
         <div className="text-center">
           <div className="mb-2 ">
-            
-            
-              <ButtonLink
-                label="Whatsapp"
-                iconButton="https://www.svgrepo.com/show/521923/whatsapp.svg"
-                link="https://wa.link/"
-              />
-            
+            <ButtonLink
+              label="Whatsapp"
+              iconButton="https://www.svgrepo.com/show/521923/whatsapp.svg"
+              link={urlWhatsapp}
+            />
           </div>
 
           <Link to="/">

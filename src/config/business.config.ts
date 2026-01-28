@@ -29,59 +29,5 @@ export const businessConfig = {
       description:
         "El servicio integral definitivo para renovar tu imagen por completo en una sola sesión.",
     },
-    {
-      id: "cejas",
-      name: "Corte Cejas",
-      duration: 60,
-      price: 0,
-      img: "https://i.pinimg.com/736x/d6/c9/d3/d6c9d3e568d82e944691fd70dcd80a65.jpg",
-      description:
-        "Limpieza y definición precisa para potenciar tus verdaderas facciones con estilo.",
-    },
-    {
-      id: "haircut2",
-      name: "Corte de cabello",
-      duration: 60,
-      price: 100,
-      img: "https://i0.wp.com/therighthairstyles.com/wp-content/uploads/2017/07/7-faded-undercut-with-long-top.jpg?fit=1045%2C1045&ssl=1",
-      description:
-        "Técnicas modernas y clásicas adaptadas a tu rostro para un look impecable y actual.",
-    },
-    {
-      id: "beard2",
-      name: "Arreglo de barba",
-      duration: 60,
-      price: 60,
-      img: "https://cdn.shopify.com/s/files/1/1345/5571/files/estilo-de-barba-corta-cuadrada.jpg?v=1635730551",
-      description:
-        "Perfilado, rebajado y cuidado detallado para una barba con presencia y prolijidad.",
-    },
-    {
-      id: "combo2",
-      name: "Corte + Barba",
-      duration: 60,
-      price: 150,
-      img: "https://www.bellaroma.mx/wp-content/uploads/2021/07/barba-delineada.jpg",
-      description:
-        "El servicio integral definitivo para renovar tu imagen por completo en una sola sesión.",
-    },
-    {
-      id: "cejas2",
-      name: "Corte Cejas",
-      duration: 60,
-      price: 0,
-      img: "https://i.pinimg.com/736x/d6/c9/d3/d6c9d3e568d82e944691fd70dcd80a65.jpg",
-      description:
-        "Limpieza y definición precisa para potenciar tus verdaderas facciones con estilo.",
-    },
-    {
-      id: "haircut3",
-      name: "Corte de cabello",
-      duration: 60,
-      price: 100,
-      img: "https://i0.wp.com/therighthairstyles.com/wp-content/uploads/2017/07/7-faded-undercut-with-long-top.jpg?fit=1045%2C1045&ssl=1",
-      description:
-        "Técnicas modernas y clásicas adaptadas a tu rostro para un look impecable y actual.",
-    },
   ],
 };
