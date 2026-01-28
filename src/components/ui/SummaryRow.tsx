@@ -18,7 +18,7 @@ export default function SummaryRow({
       <div className="bg-zinc-800/80 p-3 rounded-xl text-primary ">{icon}</div>
 
       <div className="flex-1 min-w-0">
-        <p className="text-[10px] uppercase tracking-[0.15em] text-zinc-500 font-bold mb-0.5">
+        <p className="text-sm uppercase tracking-[0.15em] text-zinc-500 font-bold mb-0.5">
           {label}
         </p>
         <div className="flex md:justify-between md:flex-row flex-col">

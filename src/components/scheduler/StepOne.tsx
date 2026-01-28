@@ -46,13 +46,13 @@ export default function StepOne({
 
   // Clases reutilizables para los inputs
   const inputClasses = `
-    w-full rounded-xl border border-primary bg-zinc-900/50 px-4 py-3 text-white 
+    text-lg w-full rounded-xl border border-primary bg-zinc-900/50 px-4 py-3 text-white 
     placeholder:text-zinc-500 transition-all duration-200 
     focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500 [&:-webkit-autofill]:shadow-[0_0_0_1000px_#141414_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]
   `;
 
   const labelClasses =
-    "flex items-center gap-2 text-primary text-sm font-medium mb-2 ";
+    "flex items-center gap-2 text-primary text-sm font-medium mb-2 md:text-xl";
 
   return (
     // Contenedor principal
@@ -146,13 +146,13 @@ export default function StepOne({
                 className={`${inputClasses} w-full text-left flex justify-between items-center cursor-pointer rounded`}
               >
                 <span
-                  className={draft.service.name ? "text-text" : "text-zinc-400"}
+                  className={draft.service.name ? "text-text" : "text-muted/70"}
                 >
                   {draft.service.name
                     ? draft.service.name
                     : "Selecciona un servicio"}
                 </span>
-                <span className="text-zinc-400">▾</span>
+                <span className="text-">▾</span>
               </button>
 
               {/* Despliegue al hacer click */}
@@ -168,11 +168,11 @@ export default function StepOne({
                           updateDraft("service", service);
                           setOpen(false);
                         }}
-                        className={`w-full px-4 py-3 flex justify-between items-center rounded-md text-white
+                        className={`w-full px-4 py-3 flex justify-between items-center rounded-md text-text
                             hover:bg-primary hover:text-black transition cursor-pointer`}
                       >
                         <span className="">{service.name}</span>
-                        <span className="font-semibold">${service.price > 0 ? service.price : "?"}</span>
+                        <span className="font-semibold">${service.price > 0 ? service.price : "50"}</span>
                       </button>
                     ))}
                   </div>
@@ -188,7 +188,7 @@ export default function StepOne({
             type="submit"
             disabled={!isValid}
             className="
-                  w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
+                  w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-xl
                   transition-all duration-300 transform active:scale-[0.98]
                   hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
                   disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer

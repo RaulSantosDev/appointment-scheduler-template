@@ -22,7 +22,7 @@ export default function FeatureSection() {
         }}
         className="text-center mb-10"
       >
-        <h2 className="text-4xl font-serif text-foreground mb-4">
+        <h2 className="text-4xl font-serif text-foreground mb-4 font-bold text-primary">
           Contáctanos
         </h2>
         {/* <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -56,7 +56,7 @@ export default function FeatureSection() {
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 transition-all">
                 <feature.icon className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-display text-foreground mb-2">
+              <h3 className="text-2xl font-display text-foreground mb-2">
                 {feature.title}
               </h3>
               <div className="text-primary text-4xl items-center w-full">

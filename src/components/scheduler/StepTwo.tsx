@@ -85,7 +85,7 @@ export default function StepTwo({
 
       {/* Selector de Fecha */}
       <div className="mb-5">
-        <label className="flex items-center gap-2 text-primary text-sm font-medium mb-3 uppercase tracking-widest">
+        <label className="flex items-center gap-2 text-primary font-medium mb-3 uppercase tracking-widest text-md">
           <CalendarIcon size={16} /> Selecciona el día de tu cita
         </label>
 
@@ -190,7 +190,8 @@ export default function StepTwo({
       <div className="grid grid-cols-2 gap-4 mt-12">
         <button
           onClick={onBack}
-          className="py-4 bg-zinc-900/80 border border-zinc-800 text-zinc-300 rounded-xl font-bold hover:bg-zinc-800 transition-all active:scale-95"
+          className="py-4 bg-zinc-900/80 border border-zinc-800 text-zinc-300 rounded-xl 
+          font-bold hover:bg-zinc-800 transition-all active:scale-95"
         >
           Volver
         </button>

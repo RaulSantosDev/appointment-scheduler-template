@@ -36,7 +36,7 @@ export const businessConfig = {
       price: 0,
       img: "https://i.pinimg.com/736x/d6/c9/d3/d6c9d3e568d82e944691fd70dcd80a65.jpg",
       description:
-        "Limpieza y definición precisa para potenciar tus facciones.",
+        "Limpieza y definición precisa para potenciar tus verdaderas facciones con estilo.",
     },
     {
       id: "haircut2",
@@ -72,7 +72,7 @@ export const businessConfig = {
       price: 0,
       img: "https://i.pinimg.com/736x/d6/c9/d3/d6c9d3e568d82e944691fd70dcd80a65.jpg",
       description:
-        "Limpieza y definición precisa para potenciar tus facciones.",
+        "Limpieza y definición precisa para potenciar tus verdaderas facciones con estilo.",
     },
     {
       id: "haircut3",

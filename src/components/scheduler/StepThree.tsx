@@ -60,9 +60,9 @@ export default function StepThree({
     <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500 ">
       
       <div className="text-center mb-4">
-        <h2 className="text-4xl font-serif mb-1 tracking-tight">
+        <h1 className="text-4xl font-serif mb-1 tracking-tight">
           Confirma tus datos
-        </h2>
+        </h1>
       </div>
 
       {/* Indicador de Pasos */}
@@ -136,7 +136,7 @@ export default function StepThree({
           onClick={onBack}
           disabled={loading}
           className="
-          w-full py-3 bg-zinc-900/50 text-zinc-400 rounded-xl font-semibold 
+          text-lg w-full py-3 bg-zinc-900/50 text-zinc-400 rounded-xl font-semibold 
           border border-zinc-800 transition-all hover:text-white hover:bg-zinc-800
           disabled:opacity-40
           "
@@ -149,9 +149,9 @@ export default function StepThree({
           disabled={loading}
           className="
             w-full py-4 bg-yellow-500 text-black rounded-xl font-bold text-lg
-              transition-all duration-300 transform active:scale-[0.98]
-              hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
-              disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
+            transition-all duration-300 transform active:scale-[0.98]
+            hover:bg-yellow-400 hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
+            disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
           "
         >
           {loading ? "Confirmando..." : "Confirmar cita"}

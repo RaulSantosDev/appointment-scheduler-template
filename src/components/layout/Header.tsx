@@ -12,12 +12,12 @@ export default function Header() {
             < Link to="/">
               BARBERÍA
             </Link>
-          </span> <span className="text-lg md:text-3xl"> BARBERSHOP
-          </span>
+          </span> <span className="text-lg md:text-3xl">BARBERSHOP</span>
         </span>
 
         {/* Navegación */}
-        <nav className="flex items-center gap-6 text-lg">
+        
+        <nav className="flex items-center gap-6 text-xl">
           <a
             href="#servicios"
             className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm"
@@ -32,7 +32,7 @@ export default function Header() {
           </a>
           <a
             href="#contacto"
-            className="text-primary hover:bg-primary hover:text-bg p-2 rounded-sm"
+            className="text-primary hover:bg-primary hover:text-bg p-2  rounded-sm"
           >
             Contacto
           </a>

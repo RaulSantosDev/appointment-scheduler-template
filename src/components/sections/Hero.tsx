@@ -45,9 +45,9 @@ export default function Hero() {
             className="order-2 md:order-1"
           >
             {/* TEXTO */}
-            <div className="text-center md:text-left mb-4 p-10">
+            <div className="text-center md:text-left mb-4 ">
               <div className="flex items-center justify-center gap-3 md:mt-6 md:justify-start ">
-                <p className="uppercase tracking-widest text-xs font-medium text-primary underline underline-offset-8">
+                <p className="uppercase tracking-widest text-sm md:text-md font-medium text-primary underline underline-offset-8">
                   Muna, Yucatán, México.
                 </p>
               </div>
@@ -58,7 +58,7 @@ export default function Hero() {
                 <p className="text-primary">versión.</p>
               </h1>
 
-              <p className="text-base md:text-lg text-text max-w-xl leading-relaxed">
+              <p className="text-base md:text-xl text-text max-w-xl leading-relaxed">
                 Experimenta el ritual de la barbería clásica fusionado con el
                 estilo urbano contemporáneo.
               </p>
@@ -67,7 +67,7 @@ export default function Hero() {
                 <Link
                   to="/schedule"
                   className="
-                md:px-10 p-4 bg-primary text-black rounded-xl font-bold text-lg
+                md:px-10 p-4 bg-primary text-black rounded-sm font-bold text-lg
                 transition-all duration-300 transform active:scale-[0.98]
                 hover:bg-primary hover:shadow-[0_0_25px_rgba(234,179,8,0.4)]
                 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none hover:cursor-pointer
@@ -93,7 +93,7 @@ export default function Hero() {
                 </button>
               </div>
 
-              <p className="mt-3 text-md text-gray-500">
+              <p className="mt-3 text-md text-muted">
                 Agenda tu cita en menos de 60 segundos
               </p>
             </div>

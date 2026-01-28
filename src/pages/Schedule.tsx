@@ -38,7 +38,7 @@ export default function Schedule() {
     <>
       <Header />
 
-      <main className="relative min-h-[calc(100vh-100px)] flex items-center p-4">
+      <main className="relative min-h-[calc(100vh-138px)] flex items-center p-4">
         {/* FONDO */}
         <div className="absolute inset-0">
           <img

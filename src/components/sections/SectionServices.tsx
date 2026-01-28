@@ -4,7 +4,7 @@ import Services from "../ui/Services";
 export default function SectionServices() {
   return (
     <div className="w-full border-primary/30 text-center ">
-      <h1 className="text-4xl mb-6 font-serif">Servicios</h1>
+      <h1 className="text-4xl mb-6 font-serif font-bold text-primary">Servicios</h1>
 
       {/* Contenedor Principal */}
       <div className="max-w-7xl mx-auto px-4 z-1">

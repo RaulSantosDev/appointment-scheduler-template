@@ -11,10 +11,10 @@ export default function Gallery(): React.JSX.Element {
   return (
     <div className="  relative w-full border border-primary rounded-xl p-4 sm:p-2 md:p-6 text-center ">
       <div className="max-w-7xl mx-auto px-4 mb-4 ">
-        <h2 className="text-3xl text-primary font-bold mb-2 font-serif">
+        <h2 className="text-4xl text-primary font-bold mb-2 font-serif">
           Nuestra Galería
         </h2>
-        <p className="text-muted">Desliza para ver más</p>
+        <p className="text-muted text-md">Desliza para ver más</p>
       </div>
 
       <Swiper

@@ -7,11 +7,11 @@ export default function Footer() {
           reservados.
         </p>
 
-        <div className="flex gap-6">
+        <div className="flex gap-6 px-4">
           <a href="#" className="text-muted hover:text-primary transition">
             Aviso de privacidad
           </a>
-          <a href="#" className="text-muted hover:text-primary transition">
+          <a href="#" className="text-muted hover:text-primary transition ">
             Términos
           </a>
         </div>
