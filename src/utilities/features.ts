@@ -8,7 +8,7 @@ export const features = [
     {
       icon: User,
       title: "Barbero Certificado",
-      description: "Barber's Name",
+      description: "Marco Tun",
       link: urlWhatsapp ,
       label: "WhatsApp",
       iconButton: "https://www.svgrepo.com/show/521923/whatsapp.svg"

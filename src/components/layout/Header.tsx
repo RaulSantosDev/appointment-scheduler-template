@@ -10,7 +10,7 @@ export default function Header() {
         <span className="text-4xl tracking-widest font-display text-text text-center">
           <span className="text-primary font-logotipo md:text-5xl md:mb-6 text-metallic border border-primary p-2 rounded-sm uppercase">
             < Link to="/">
-              BARBERÍA
+              La choza
             </Link>
           </span> <span className="text-lg md:text-3xl">BARBERSHOP</span>
         </span>
