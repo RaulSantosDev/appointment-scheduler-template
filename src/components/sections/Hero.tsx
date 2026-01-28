@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "../../assets/LaChozaLogo.png"
+import logo from "../../assets/LaChozaLogo2.png"
 
 export default function Hero() {
   return (
