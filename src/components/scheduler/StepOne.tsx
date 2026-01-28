@@ -27,8 +27,7 @@ export default function StepOne({
   }
 
   const handleChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target;
     setDraft({
