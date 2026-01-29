@@ -66,6 +66,7 @@ export default function FeatureSection() {
                 </div>               
                 
                   <ButtonLink 
+                    target={feature.target}
                     link={feature.link}
                     label={feature.label} 
                     iconButton={feature.iconButton} 

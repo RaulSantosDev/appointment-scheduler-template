@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 type ButtonLinkProps = {
   label: string;
   iconButton: string;
-  link: string
+  link: string;
+  target: string | undefined
 };
 
-export const ButtonLink = ({ label, iconButton, link }: ButtonLinkProps) => {
+export const ButtonLink = ({ label, iconButton, link , target}: ButtonLinkProps) => {
   return (
     
       <Link
         to={link}
+        target={target}
         rel="noopener noreferrer"
         className="inline-flex items-center font-medium w-full justify-center 
         mt-2 bg-yellow-400/80 text-black rounded-xl p-4 text-lg

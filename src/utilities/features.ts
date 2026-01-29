@@ -7,7 +7,8 @@ export const features = [
       description: "Barber's Name",
       link: "https://wa.link/",
       label: "WhatsApp",
-      iconButton: "https://www.svgrepo.com/show/521923/whatsapp.svg"
+      iconButton: "https://www.svgrepo.com/show/521923/whatsapp.svg",
+      target: "_blank"
 
     },
     {
@@ -16,7 +17,8 @@ export const features = [
       description: "Facebook",
       link: "https://www.facebook.com/profile.php?",
       label: "Facebook",
-      iconButton: "https://www.svgrepo.com/show/509923/facebook.svg"
+      iconButton: "https://www.svgrepo.com/show/509923/facebook.svg",
+      target: "_blank"
     },
     {
       icon: Clock,
