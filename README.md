@@ -2,13 +2,14 @@
 
 ![Status](https://img.shields.io/badge/Status-Production-success) ![Stack](https://img.shields.io/badge/Tech-React%20|%20TypeScript%20|%20n8n-blue)
 
+---
 ## 🚀 Caso de Éxito en Producción: La Choza Barber
 
 Este sistema no es solo un concepto; es una solución **desplegada y operativa**. Actualmente, gestiona la totalidad de la agenda de **La Choza Barber**, centralizando reservas, eliminando conflictos de horarios y automatizando la comunicación con los clientes.
 
 > **Impacto real:** Desde su implementación, se ha reducido al 0% la doble reserva de citas, se ha reducido al 0% la omisión de reservas de citas y se ha optimizado el tiempo operativo del negocio al eliminar la gestión manual por WhatsApp.
 
-
+---
 ## 🎯 Demo en Producción
 
 Este proyecto cuenta con una implementación real y activa en un entorno productivo.
@@ -19,6 +20,7 @@ Este proyecto cuenta con una implementación real y activa en un entorno product
 > ⚠️ Nota:
 El demo refleja un entorno real de negocio, los emails se envían al mismo correo otorgado. Algunas funciones administrativas y credenciales internas están protegidas por razones de seguridad.
 
+---
 ## 📖 Descripción Técnica
 
 **Appointment Schedule** es una solución Fullstack desacoplada diseñada para la orquestación de reservas en tiempo real. Resuelve la complejidad de la gestión de disponibilidad mediante una arquitectura basada en eventos y microservicios low-code.
@@ -26,7 +28,6 @@ El demo refleja un entorno real de negocio, los emails se envían al mismo corre
 El sistema actúa como una capa de abstracción inteligente entre la interfaz de usuario y los servicios de Google (Calendar, Gmail, Sheets), garantizando la integridad de los datos y una experiencia de usuario (UX) fluida.
 
 ---
-
 ## 🛠 Stack Tecnológico
 
 El proyecto utiliza un stack moderno, aprovechando las últimas versiones estables de sus tecnologías principales.
