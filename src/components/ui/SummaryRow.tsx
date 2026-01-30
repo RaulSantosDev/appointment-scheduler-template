@@ -24,7 +24,6 @@ export default function SummaryRow({
         <div className="flex md:justify-between md:flex-row flex-col">
           <h3 className="text-lg font-bold text-text/90">{value}</h3>
           {price && (
-            
             <span className="text-primary font-serif text-2xl">{price}</span>
           )}
         </div>

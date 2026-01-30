@@ -17,14 +17,14 @@
     "framer-motion": "^12.26.2",
     "init": "^0.1.2",
     "lucide-react": "^0.562.0",
-    "npx": "^10.2.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0",
     "shadcn": "^3.6.3",
     "swiper": "^12.0.3",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "update": "^0.4.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

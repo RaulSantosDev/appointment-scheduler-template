@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "../../assets/LaChozaLogo2.png"
+import logo from "../../assets/LaChozaLogo2.png";
 
 export default function Hero() {
   return (
     <>
       <section className="relative min-h-[calc(100vh-100px)] flex-1 flex items-center overflow-hidden ">
-        
         {/* FONDO */}
         <div className="absolute inset-0 ">
           <img
@@ -128,8 +127,6 @@ export default function Hero() {
               className="relative w-90 md:w-130 rounded-full object-cover transition-all duration-500 ease-out hover:scale-[1.10] hover:brightness-[1.1] active:scale-[0.98] active:duration-150"
             />
           </motion.div>
-
-          
         </div>
       </section>
 

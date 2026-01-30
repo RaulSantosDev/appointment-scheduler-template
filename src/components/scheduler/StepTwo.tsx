@@ -59,12 +59,13 @@ export default function StepTwo({
 
   const isValid = Boolean(draft.date && draft.time);
 
-  {/* 1. Generamos la fecha mínima (hoy) */}
-  const today = new Date().toLocaleDateString('en-CA');
+  {
+    /* 1. Generamos la fecha mínima (hoy) */
+  }
+  const today = new Date().toLocaleDateString("en-CA");
 
   return (
     <section className="max-w-md mx-auto text-text animate-in fade-in slide-in-from-right-4 duration-500 ">
-      
       <div className="text-center mb-4">
         <h1 className="text-4xl font-serif mb-1 tracking-wide">
           Selecciona tu horario
@@ -90,22 +91,22 @@ export default function StepTwo({
         </label>
 
         <div className="relative group">
-        {/* 2. Tu input actualizado */}
-        <input
-          type="date"
-          value={draft.date}
-          min={today} // <-- Esta línea bloquea los días anteriores
-          placeholder="01/01/2025"
-          name="date"
-          onChange={handleChange}
-          onClick={() => setShowNoSlotsMessage(false)}
-          className="
+          {/* 2. Tu input actualizado */}
+          <input
+            type="date"
+            value={draft.date}
+            min={today} // <-- Esta línea bloquea los días anteriores
+            placeholder="01/01/2025"
+            name="date"
+            onChange={handleChange}
+            onClick={() => setShowNoSlotsMessage(false)}
+            className="
             w-full rounded-2xl border border-primary/20 p-4 text-text
             appearance-auto transition-all duration-300 hover:border-primary
             focus:border-primary focus:outline-none focus:ring-2 focus:ring-yellow-500/20
             group-hover:border-zinc-600
           "
-        />
+          />
 
           {/* Este div ayuda a que el icono nativo del calendario sea más discreto o se oculte según el navegador */}
           <style>{`

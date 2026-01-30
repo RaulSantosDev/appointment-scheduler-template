@@ -8,7 +8,16 @@ Este sistema no es solo un concepto; es una solución **desplegada y operativa**
 
 > **Impacto real:** Desde su implementación, se ha reducido al 0% la doble reserva de citas, se ha reducido al 0% la omisión de reservas de citas y se ha optimizado el tiempo operativo del negocio al eliminar la gestión manual por WhatsApp.
 
----
+
+## 🎯 Demo en Producción
+
+Este proyecto cuenta con una implementación real y activa en un entorno productivo.
+
+👉 Acceder al Demo Público:
+[Aquí](https://appointment-scheduler-template.netlify.app/)
+
+> ⚠️ Nota:
+El demo refleja un entorno real de negocio, los emails se envían al mismo correo otorgado. Algunas funciones administrativas y credenciales internas están protegidas por razones de seguridad.
 
 ## 📖 Descripción Técnica
 
@@ -20,7 +29,7 @@ El sistema actúa como una capa de abstracción inteligente entre la interfaz de
 
 ## 🛠 Stack Tecnológico
 
-El proyecto utiliza un stack moderno y "bleeding-edge", aprovechando las últimas versiones estables de sus tecnologías principales.
+El proyecto utiliza un stack moderno, aprovechando las últimas versiones estables de sus tecnologías principales.
 
 ### Frontend (Cliente)
 
@@ -37,15 +46,15 @@ El proyecto utiliza un stack moderno y "bleeding-edge", aprovechando las última
 
 El backend opera bajo una arquitectura **Serverless / Low-code** optimizada para el mantenimiento y la escalabilidad.
 
-* **Orquestación:** n8n (Workflow Automation) actuando como el cerebro lógico del sistema.
-* **Infraestructura:** Instancia de n8n **auto-alojada (Self-Hosted)** desplegada en un servidor VPS de **Hostinger**, garantizando control total sobre los datos y la ejecución.
-* **Google Cloud Platform (GCP):**
-    * Gestión de proyecto y habilitación de APIs en la consola de Google.
-    * Configuración de autenticación y credenciales para acceso seguro a recursos del usuario.
-* **Integraciones:**
-    * **Google Calendar API:** Verificación de disponibilidad y bloqueo de slots.
-    * **Gmail API:** Envío automatizado de confirmaciones HTML.
-    * **Google Sheets:** Persistencia de datos y logs de transacciones.
+- **Orquestación:** n8n (Workflow Automation) actuando como el cerebro lógico del sistema mediante Webhooks.
+- **Infraestructura:** Instancia de n8n **auto-alojada (Self-Hosted)** desplegada en un servidor VPS de **Hostinger**, garantizando control total sobre los datos y la ejecución.
+- **Google Cloud Platform (GCP):**
+  - Gestión de proyecto y habilitación de APIs en la consola de Google.
+  - Configuración de autenticación y credenciales para acceso seguro a recursos del usuario.
+- **Integraciones:**
+  - **Google Calendar API:** Verificación de disponibilidad y bloqueo de slots.
+  - **Gmail API:** Envío automatizado de confirmaciones HTML.
+  - **Google Sheets:** Persistencia de datos y logs de transacciones.
 
 ---
 
@@ -86,7 +95,7 @@ Se implementó un sistema de manejo de errores en capas:
 
 ---
 
-## 💻 Instalación y Ejecución Local
+## 💻 Instalación y Ejecución Local (Solo Frontend)
 
 Este repositorio contiene el código fuente del Frontend.
 
@@ -98,16 +107,16 @@ Este repositorio contiene el código fuente del Frontend.
 ### Pasos
 
 1.  Clonar el repositorio:
-    ```bash
+    ```
     git clone git@github.com:RaulSantosDev/appointment-scheduler-template.git
     ```
 2.  Instalar dependencias:
-    ```bash
-    cd appointment-schedule
+    ```
+    cd appointment-schedule-template
     npm install
     ```
 3.  Ejecutar entorno de desarrollo:
-    ```bash
+    ```
     npm run dev
     ```
 
@@ -126,9 +135,11 @@ Este proyecto demuestra competencias en:
 
 ## 👨‍💻 Autor
 
-**Raul Santos**
-_Desarrollador Web & Especialista en Automatizaciónes N8N_
+_**Raul Santos** — Desarrollador frontend y desarrollador de automatización (n8n)_
 
 Enfocado en crear soluciones tecnológicas eficientes que aporten valor inmediato. Apasionado por React, TypeScript y la arquitectura de microservicios con n8n.
+
+## 🤖 Desarrollo asistido por IA 
+Este proyecto implementó herramientas de Inteligencia Artificial como ChatGPT y Google Gemini para la orientación arquitectónica, la depuración y el diseño iterativo. La integración en n8n, la implementación final y la validación de producción fueron realizadas por el autor.
 
 [LinkedIn](https://www.linkedin.com/in/raulsantosdev/)

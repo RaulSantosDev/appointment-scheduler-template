@@ -58,7 +58,6 @@ export default function StepThree({
 
   return (
     <section className="max-w-md mx-auto text-white animate-in fade-in slide-in-from-right-4 duration-500 ">
-      
       <div className="text-center mb-4">
         <h1 className="text-4xl font-serif mb-1 tracking-tight">
           Confirma tus datos

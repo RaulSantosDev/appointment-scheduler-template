@@ -9,7 +9,7 @@ export default function Home() {
       <div className="flex flex-col h-screen">
         <Header />
 
-        <main >
+        <main>
           <Hero />
           <LandingPage />
         </main>

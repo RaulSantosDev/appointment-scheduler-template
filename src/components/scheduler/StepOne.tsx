@@ -26,9 +26,7 @@ export default function StepOne({
     setDraft({ ...draft, [key]: value });
   }
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setDraft({
       ...draft,
@@ -140,7 +138,6 @@ export default function StepOne({
               <button
                 type="button"
                 id="service"
-                
                 onClick={() => setOpen(!open)}
                 className={`${inputClasses} w-full text-left flex justify-between items-center cursor-pointer rounded`}
               >
@@ -171,7 +168,9 @@ export default function StepOne({
                             hover:bg-primary hover:text-black transition cursor-pointer`}
                       >
                         <span className="">{service.name}</span>
-                        <span className="font-semibold">${service.price > 0 ? service.price : "50"}</span>
+                        <span className="font-semibold">
+                          ${service.price > 0 ? service.price : "50"}
+                        </span>
                       </button>
                     ))}
                   </div>

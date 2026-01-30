@@ -12,10 +12,8 @@ type AppointmentPayload = {
 const urlGetAvailability = import.meta.env.VITE_API_URL;
 const urlCreateAppointment = import.meta.env.VITE_API_URL2;
 
-
 // Obtiene los horarios disponibles
 export async function getAvailability(date: string): Promise<string[]> {
-
   if (!urlGetAvailability) {
     throw new Error("Falta la variable de entorno VITE_API_URL");
   }
@@ -40,7 +38,6 @@ export async function getAvailability(date: string): Promise<string[]> {
 
 // Datos para la cita.
 export async function createAppointment(payload: AppointmentPayload) {
-
   if (!urlCreateAppointment) {
     throw new Error("Falta la variable de entorno VITE_API_URL");
   }

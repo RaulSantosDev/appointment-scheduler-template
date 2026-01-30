@@ -78,7 +78,6 @@ export default function StepFour({ draft, onReset }: StepFourProps) {
               Hemos enviado los datos al siguiente correo electrónico.
             </h1>
 
-
             <div className="flex items-center gap-2 text-text">
               <AtSign size={18} />
               <span className="text-lg font-bold">{draft.email}</span>

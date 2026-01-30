@@ -60,18 +60,14 @@ export default function FeatureSection() {
                 {feature.title}
               </h3>
               <div className="text-primary text-4xl items-center w-full">
-                <div className="mb-2">
-                  {feature.description}
+                <div className="mb-2">{feature.description}</div>
 
-                </div>               
-                
-                  <ButtonLink 
-                    target={feature.target}
-                    link={feature.link}
-                    label={feature.label} 
-                    iconButton={feature.iconButton} 
-                  />                
-                
+                <ButtonLink
+                  target={feature.target}
+                  link={feature.link}
+                  label={feature.label}
+                  iconButton={feature.iconButton}
+                />
               </div>
             </div>
           </motion.div>

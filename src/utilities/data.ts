@@ -9,7 +9,3 @@ export const images = [
   "corte-8.jpg",
   "corte-9.jpg",
 ];
-
-
-
-

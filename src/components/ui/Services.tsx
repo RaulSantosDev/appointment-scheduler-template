@@ -9,14 +9,11 @@ type ServicesProps = {
     price: number;
     img: string;
     description: string;
-  }
+  };
   index: number;
 };
 
-export default function Services({
-  service,
-  index,
-}: ServicesProps) {
+export default function Services({ service, index }: ServicesProps) {
   return (
     <motion.div
       initial={{
@@ -37,9 +34,9 @@ export default function Services({
     >
       <div className="mx-auto rounded-lg overflow-hidden border border-primary/40 hover:border-primary transition-all duration-300">
         {/* <!-- Card Image --> */}
-        <img 
-          className="w-full h-70 object-cover" 
-          src={service.img} 
+        <img
+          className="w-full h-70 object-cover"
+          src={service.img}
           alt={service.name}
         />
 
@@ -47,7 +44,7 @@ export default function Services({
         <div className="p-4 text-primary">
           <div className="flex justify-center gap-4">
             <span>
-              <Scissors size={30}/>
+              <Scissors size={30} />
             </span>
             <h2 className="text-xl md:text-2xl font-bold"> {service.name}</h2>
           </div>
